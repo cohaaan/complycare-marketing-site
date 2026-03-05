@@ -29,21 +29,19 @@ export function HeroSection() {
                 >
                   Book a Demo
                 </Link>
-                <Link
-                  to="/pricing"
-                  className="inline-flex items-center justify-center rounded-2xl border-2 border-black bg-transparent px-8 py-4 text-lg font-semibold text-black transition hover:bg-[#cfe7bc]"
-                >
-                  Get pricing
-                </Link>
               </div>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <div className="flex items-center justify-center rounded-full bg-white px-4 py-2 shadow-sm">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#4E6478]">HIPAA Compliant</span>
-                </div>
-                <div className="flex items-center justify-center rounded-full bg-white px-4 py-2 shadow-sm">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#4E6478]">PCC Integrated</span>
-                </div>
+                <img
+                  src="/hipaa-compliant-badge.png"
+                  alt="HIPAA Compliant"
+                  className="h-14 w-auto object-contain sm:h-16"
+                />
+                <img
+                  src="/pcc-marketplace-partner.png"
+                  alt="PointClickCare Marketplace Partner"
+                  className="h-14 w-auto object-contain sm:h-16"
+                />
               </div>
         </div>
       </div>

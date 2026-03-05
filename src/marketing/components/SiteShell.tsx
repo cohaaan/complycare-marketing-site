@@ -44,7 +44,7 @@ export function SiteShell({ children, includeFinalCta = false }: SiteShellProps)
     <div
       className="min-h-screen text-[#2E4057]"
       style={{
-        background: 'linear-gradient(to bottom, #F0F9FF 0%, #F5FBFF 10%, #E8F8FE 25%, #D4F0FD 45%, #acf3fd 100%)',
+        background: 'linear-gradient(to bottom, #ADD8E6 0%, #C5E8F5 18%, #E0F2FE 40%, #F5FBFF 60%, #FFFFFF 75%, #FFFFFF 100%)',
         backgroundAttachment: 'fixed',
       }}
     >

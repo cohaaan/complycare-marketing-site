@@ -25,7 +25,7 @@ const storyPanels: StoryPanel[] = [
       'Route each referral through one guided process with real-time readiness, packet status, and owner accountability visible to every team.',
     ctaLabel: 'See admissions workflow',
     ctaTo: '/platform',
-    visual: 'dashboard',
+    visual: 'endOfDayReport',
     toneClass: 'surface-pistachio',
     borderClass: 'border-[#CFE3C2]',
   },
@@ -49,7 +49,7 @@ const storyPanels: StoryPanel[] = [
       'Immutable logs, secure signatures, and export-ready records reduce scramble before surveys, payer audits, and legal requests.',
     ctaLabel: 'View security center',
     ctaTo: '/security',
-    visual: 'alerts',
+    visual: 'auditReport',
     toneClass: 'surface-rose',
     borderClass: 'border-[#F2CDD5]',
   },
@@ -57,8 +57,22 @@ const storyPanels: StoryPanel[] = [
 
 export function StorybookPanelsSection() {
   return (
-    <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
+    <section className="section-pad border-b border-[#E4EDF5]">
       <div className="cc-container">
+        <div className="mb-8 flex flex-col items-center justify-center px-6 py-4">
+          <div className="w-full max-w-[260px] overflow-hidden sm:max-w-[320px] lg:max-w-[380px]" style={{ aspectRatio: '612/570' }}>
+            <img
+              src="/healthcare-characters.svg"
+              alt="Healthcare professionals collaborating"
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+          <p className="mt-4 text-center font-display text-4xl font-semibold leading-tight text-[#2E4057] sm:text-5xl lg:text-7xl">
+            Know What&apos;s Done.
+            <br />
+            Fix What&apos;s Stuck.
+          </p>
+        </div>
         <SectionIntro
           eyebrow="How teams use ComplyCare.ai"
           title="High-contrast workflows built for speed, clarity, and trust"

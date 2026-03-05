@@ -13,7 +13,12 @@ import {
 } from 'lucide-react';
 import { cx } from '../utils/cx';
 
-export type ProductVisual = 'dashboard' | 'census' | 'documents' | 'alerts' | 'floor';
+// Figma design: BedTracker - Floor 2 Management (node 13:4)
+const FIGMA_EMBED_URL =
+  'https://www.figma.com/embed?embed_host=share&url=' +
+  encodeURIComponent('https://www.figma.com/design/1GPcZDqbfX2pP1uM4UgRBU/BedTracker---Floor-2-Management?node-id=13-4');
+
+export type ProductVisual = 'dashboard' | 'census' | 'documents' | 'alerts' | 'floor' | 'endOfDayReport' | 'auditReport';
 
 type ProductCanvasProps = {
   variant: ProductVisual;
@@ -445,6 +450,56 @@ function Shell({ variant }: { variant: ProductVisual }) {
 }
 
 export function ProductCanvas({ variant, className }: ProductCanvasProps) {
+  if (variant === 'dashboard') {
+    return (
+      <div className={cx('shot-frame h-[280px] overflow-hidden bg-[#F3F4F6]', className)}>
+        <iframe
+          src={FIGMA_EMBED_URL}
+          title="BedTracker - Floor 2 Management"
+          className="h-full w-full border-0"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+
+  if (variant === 'endOfDayReport') {
+    return (
+      <div className={cx('shot-frame h-[280px] overflow-hidden bg-[#F3F4F6]', className)}>
+        <img
+          src="/end-of-day-report.png"
+          alt="End of Day Report - Bed Tracker"
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+    );
+  }
+
+  if (variant === 'auditReport') {
+    return (
+      <div className={cx('shot-frame h-[280px] overflow-hidden bg-[#F3F4F6]', className)}>
+        <img
+          src="/audit-report.png"
+          alt="Audit defensibility"
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+    );
+  }
+
+  if (variant === 'floor') {
+    return (
+      <div className={cx('shot-frame h-[280px] overflow-hidden bg-[#F3F4F6]', className)}>
+        <img
+          src="/floor-plan.png"
+          alt="Floor Management - Floor 2"
+          className="h-full w-full object-cover object-top"
+          style={{ clipPath: 'inset(0 0 20% 0)' }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className={cx('shot-frame h-[280px] overflow-hidden bg-[#F3F4F6]', className)}>
       <Shell variant={variant} />

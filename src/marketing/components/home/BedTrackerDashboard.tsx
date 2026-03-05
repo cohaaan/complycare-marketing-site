@@ -40,33 +40,33 @@ export function BedTrackerDashboard() {
       style={{ fontFamily: 'Inter, sans-serif' }}
     >
       {/* Sidebar */}
-      <aside className="flex w-28 shrink-0 flex-col border-r border-[#e5e7eb] bg-white py-1.5">
+      <aside className="flex w-32 shrink-0 flex-col border-r border-[#e5e7eb] bg-white py-2.5">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
             <button
               key={item.label}
               type="button"
-              className={`relative flex items-center gap-1 px-1.5 py-1 text-left text-[10px] transition-colors ${
+              className={`relative flex items-center gap-2 px-2.5 py-2 text-left text-xs transition-colors ${
                 item.active ? 'bg-[#eff6ff] text-[#3b82f6]' : 'text-[#4b5563] hover:bg-[#f9fafb]'
               }`}
             >
-              <Icon className="size-3 shrink-0" strokeWidth={2} />
+              <Icon className="size-3.5 shrink-0" strokeWidth={2} />
               <span className="truncate">{item.label}</span>
               {item.badge != null && (
-                <span className="absolute right-1 top-1/2 flex size-3.5 -translate-y-1/2 items-center justify-center rounded-full bg-red-500 text-[8px] font-semibold text-white">
+                <span className="absolute right-2 top-1/2 flex size-4 -translate-y-1/2 items-center justify-center rounded-full bg-red-500 text-[9px] font-semibold text-white">
                   {item.badge}
                 </span>
               )}
             </button>
           );
         })}
-        <div className="mt-auto border-t border-[#e5e7eb] pt-1">
+        <div className="mt-auto border-t border-[#e5e7eb] pt-2">
           <button
             type="button"
-            className="flex w-full items-center gap-1 px-1.5 py-1 text-left text-[10px] text-[#4b5563] hover:bg-[#f9fafb]"
+            className="flex w-full items-center gap-2 px-2.5 py-2 text-left text-xs text-[#4b5563] hover:bg-[#f9fafb]"
           >
-            <LogOut className="size-3 shrink-0" strokeWidth={2} />
+            <LogOut className="size-3.5 shrink-0" strokeWidth={2} />
             <span>Logout</span>
           </button>
         </div>
