@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <rect width="72" height="72" rx="18" fill="#F2F6FA" />
+  <path
+    d="M15 14 C 7 22, 10 44, 24 55 C 35 64, 49 55, 49 41 C 49 25, 33 6, 15 14 Z"
+    fill="#5BBFA0"
+    opacity="0.95"
+  />
+  <path
+    d="M34 12 C 26 20, 29 40, 41 50 C 50 58, 62 51, 61 38 C 60 24, 47 4, 34 12 Z"
+    fill="#F5A07A"
+    opacity="0.82"
+  />
+  <circle cx="32" cy="30" r="4.5" fill="#FFFFFF" />
+</svg>
