@@ -10,7 +10,7 @@ function Brand() {
       <img
         src="/complycare-logo.svg"
         alt="ComplyCare"
-        className="h-12 w-auto"
+        className="h-auto w-48 min-w-[160px] sm:h-12 sm:w-auto sm:min-w-0"
       />
     </NavLink>
   );
