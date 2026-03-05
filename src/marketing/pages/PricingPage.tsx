@@ -27,7 +27,7 @@ export function PricingPage() {
     <>
       <PageMeta
         title="Pricing"
-        description="ComplyCare.ai pricing is tailored by facility footprint, workflow complexity, and deployment scope."
+        description="ComplyCare.io pricing is tailored by facility footprint, workflow complexity, and deployment scope."
         path="/pricing"
       />
       <SiteShell>
@@ -36,7 +36,7 @@ export function PricingPage() {
             <SectionIntro
               eyebrow="Pricing"
               title="Enterprise pricing aligned to operational footprint"
-              description="ComplyCare.ai pricing is scoped by facility count, workflow modules, integration needs, and implementation support."
+              description="ComplyCare.io pricing is scoped by facility count, workflow modules, integration needs, and implementation support."
             />
 
             <div className="mt-8 rounded-2xl border border-[#5BBFA0]/40 bg-[#EAF7F2] p-6 text-sm text-[#4E6478]">

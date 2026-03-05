@@ -8,7 +8,7 @@ export function SignInPage() {
     <>
       <PageMeta
         title="Sign In"
-        description="Access your ComplyCare.ai customer workspace."
+        description="Access your ComplyCare.io customer workspace."
         path="/signin"
       />
       <SiteShell>
@@ -16,7 +16,7 @@ export function SignInPage() {
           <div className="cc-container">
             <div className="mx-auto max-w-xl rounded-3xl border border-[#E4EDF5] bg-white p-8 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#4E6478]">Customer Access</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold text-[#2E4057]">Sign in to ComplyCare.ai</h1>
+              <h1 className="mt-3 font-display text-4xl font-semibold text-[#2E4057]">Sign in to ComplyCare.io</h1>
               <p className="mt-4 text-sm leading-relaxed text-[#4E6478]">
                 Customer portal access is provisioned by your ComplyCare implementation team.
               </p>

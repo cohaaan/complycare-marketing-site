@@ -11,7 +11,7 @@ export function MetricsSection() {
         <SectionIntro
           eyebrow="Outcomes"
           title="Measured impact across turnover speed, task accountability, and compliance execution"
-          description="Facilities use ComplyCare.ai to reduce delays, increase ownership clarity, and improve operational follow-through."
+          description="Facilities use ComplyCare.io to reduce delays, increase ownership clarity, and improve operational follow-through."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">

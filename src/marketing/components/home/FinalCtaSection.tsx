@@ -1,6 +1,4 @@
 import { FormEvent, useState } from 'react';
-import { CTAButton } from '../CTAButton';
-import { ProductCanvas } from '../ProductCanvas';
 
 export function FinalCtaSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,7 +9,7 @@ export function FinalCtaSection() {
   };
 
   return (
-    <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
+    <section id="request-demo" className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
       <div className="cc-container">
         <div className="grid gap-8 rounded-3xl border border-[#E4EDF5] bg-white p-7 shadow-[0_14px_34px_rgba(46,64,87,0.1)] sm:p-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
@@ -23,19 +21,17 @@ export function FinalCtaSection() {
               Tell us your facility footprint and top workflows. We will map the rollout plan and expected ROI in your demo.
             </p>
 
-            <ProductCanvas variant="census" className="mt-6 max-w-xl" />
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <CTAButton to="/contact">Book a Demo</CTAButton>
-              <CTAButton to="/contact" variant="secondary">
-                Talk to Sales
-              </CTAButton>
-            </div>
           </div>
 
           <div className="surface-sky rounded-2xl border border-[#D9E8F8] p-5">
             <h3 className="font-display text-xl font-semibold text-[#2E4057]">Request a tailored walkthrough</h3>
             <p className="mt-2 text-sm text-[#4E6478]">Optional fast form for teams that want scheduling follow-up.</p>
+            <p className="mt-2 text-sm text-[#4E6478]">
+              Or reach out at{' '}
+              <a href="mailto:info@complycare.io" className="font-semibold text-[#3DA882] hover:text-[#2E8E6D]">
+                info@complycare.io
+              </a>
+            </p>
 
             {submitted ? (
               <p className="mt-4 rounded-lg border border-[#5BBFA0]/50 bg-[#EAF7F2] px-3 py-2 text-sm text-[#3DA882]">

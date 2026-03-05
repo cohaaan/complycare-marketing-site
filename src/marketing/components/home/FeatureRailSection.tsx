@@ -2,6 +2,8 @@ import { ArrowUpRight } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { featureCards, type FeatureCard } from '../../data/content';
+
+const visibleFeatureCards = featureCards.filter((f) => f.id !== 'facility-ai-assistant');
 import { iPadFrame } from '../iPadFrame';
 import { ProductCanvas } from '../ProductCanvas';
 import { SectionIntro } from '../SectionIntro';
@@ -37,7 +39,7 @@ function FeatureVisual({ feature, compact }: { feature: FeatureCard; compact?: b
 function MobileStack() {
   return (
     <div className="mt-10 grid gap-4 md:hidden">
-      {featureCards.map((feature) => (
+      {visibleFeatureCards.map((feature) => (
         <article key={feature.id} className={`card-premium min-h-[36rem] p-6 ${toneClassMap[feature.tone]}`}>
           <h3 className="font-display text-2xl font-semibold text-[#2E4057]">{feature.title}</h3>
           <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{feature.summary}</p>
@@ -128,7 +130,7 @@ export function FeatureRailSection() {
               style={{ transform: `translate3d(-${offset}px, 0, 0)` }}
               aria-label="Horizontal feature rail"
             >
-              {featureCards.map((feature) => (
+              {visibleFeatureCards.map((feature) => (
                 <article
                   key={feature.id}
                   className={`w-[calc(26rem*1.17)] h-full min-h-0 flex-none overflow-hidden flex flex-col card-premium p-5 ${toneClassMap[feature.tone]}`}
@@ -144,14 +146,14 @@ export function FeatureRailSection() {
                   <p className="mt-2 text-sm leading-relaxed text-[#4E6478] line-clamp-2">{feature.summary}</p>
                   <div className="mt-4 flex flex-1 min-h-0 flex-col items-center justify-center overflow-hidden">
                     {feature.videoSrc ? (
-                      <iPadFrame className="h-full min-h-[220px] w-full">
+                      <iPadFrame className="h-full min-h-[300px] w-full" orientation="landscape">
                         <video
                           src={feature.videoSrc}
                           autoPlay
                           loop
                           muted
                           playsInline
-                          className="h-full w-full object-contain"
+                          className="h-full w-full"
                         />
                       </iPadFrame>
                     ) : (

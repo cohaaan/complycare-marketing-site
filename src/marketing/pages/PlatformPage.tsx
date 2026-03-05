@@ -40,7 +40,7 @@ export function PlatformPage() {
     <>
       <PageMeta
         title="Platform"
-        description="Explore the ComplyCare.ai platform: desktop command center plus mobile execution for post-acute operations and compliance."
+        description="Explore the ComplyCare.io platform: desktop command center plus mobile execution for post-acute operations and compliance."
         path="/platform"
       />
       <SiteShell includeFinalCta>
@@ -53,7 +53,7 @@ export function PlatformPage() {
                   One platform. Two execution surfaces. Zero data silos.
                 </h1>
                 <p className="mt-5 text-lg leading-relaxed text-[#4E6478]">
-                  ComplyCare.ai delivers enterprise oversight on desktop and real-time workflow execution on mobile through one live data model.
+                  ComplyCare.io delivers enterprise oversight on desktop and real-time workflow execution on mobile through one live data model.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <CTAButton to="/contact">See platform</CTAButton>
@@ -122,7 +122,7 @@ export function PlatformPage() {
             <SectionIntro
               eyebrow="Conversational intelligence"
               title="Talk to your facility in plain language"
-              description="ComplyCare.ai answers compliance and accountability questions instantly, grounded in your live documentation, signatures, and workflow evidence."
+              description="ComplyCare.io answers compliance and accountability questions instantly, grounded in your live documentation, signatures, and workflow evidence."
             />
 
             <div className="mt-8 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
@@ -166,7 +166,7 @@ export function PlatformPage() {
             <SectionIntro
               eyebrow="Integration layer"
               title="PointClickCare-connected operations"
-              description="Synchronize census-related workflows and operational signals from existing systems while preserving ComplyCare.ai as your execution and compliance source of truth."
+              description="Synchronize census-related workflows and operational signals from existing systems while preserving ComplyCare.io as your execution and compliance source of truth."
             />
 
             <div className="mt-8 rounded-3xl border border-[#5BBFA0]/40 bg-[#EAF7F2] p-6">

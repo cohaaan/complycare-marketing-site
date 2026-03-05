@@ -38,7 +38,7 @@ export function ContactPage() {
     <>
       <PageMeta
         title="Contact"
-        description="Book a ComplyCare.ai demo and discuss pricing for your post-acute care organization."
+        description="Book a ComplyCare.io demo and discuss pricing for your post-acute care organization."
         path="/contact"
       />
       <SiteShell>
@@ -47,7 +47,7 @@ export function ContactPage() {
             <div>
               <SectionIntro
                 eyebrow="Book a demo"
-                title="See ComplyCare.ai in your operational context"
+                title="See ComplyCare.io in your operational context"
                 description="Share your current admission volume, facility footprint, and compliance priorities. We will tailor the walkthrough to your workflows."
               />
 
@@ -67,9 +67,16 @@ export function ContactPage() {
             </div>
 
             <div className="rounded-3xl border border-[#E4EDF5] bg-white p-6 sm:p-8">
+              <p className="mb-4 text-sm text-[#4E6478]">
+                Contact us at{' '}
+                <a href="mailto:info@complycare.io" className="font-semibold text-[#3DA882] hover:text-[#2E8E6D]">
+                  info@complycare.io
+                </a>
+                {' '}for questions or to schedule a demo.
+              </p>
               {submitted ? (
                 <div className="rounded-2xl border border-[#5BBFA0]/50 bg-[#EAF7F2] p-5 text-sm text-[#3DA882]">
-                  Thanks for reaching out. A ComplyCare.ai specialist will contact you shortly.
+                  Thanks for reaching out. A ComplyCare.io specialist will contact you shortly.
                 </div>
               ) : null}
 

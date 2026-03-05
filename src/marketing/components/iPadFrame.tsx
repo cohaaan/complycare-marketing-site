@@ -3,24 +3,27 @@ import type { ReactNode } from 'react';
 type iPadFrameProps = {
   children: ReactNode;
   className?: string;
+  /** Portrait (3:4) for tall content, landscape (4:3) for form demos and wide video */
+  orientation?: 'portrait' | 'landscape';
 };
 
 /**
  * iPad-style tablet frame: dark bezel, rounded corners, camera on top.
- * Portrait orientation with ~3:4 aspect ratio.
  */
-export function iPadFrame({ children, className = '' }: iPadFrameProps) {
+export function iPadFrame({ children, className = '', orientation = 'portrait' }: iPadFrameProps) {
+  const isLandscape = orientation === 'landscape';
   return (
     <div
       className={`relative mx-auto flex justify-center ${className}`}
       style={{ perspective: '800px' }}
     >
       <div
-        className="relative w-full max-w-[280px] overflow-hidden rounded-[1.25rem] border-[12px] border-[#1a1a1a] bg-[#1a1a1a] shadow-xl"
+        className="relative w-full overflow-hidden rounded-[1.25rem] border-[12px] border-[#1a1a1a] bg-[#1a1a1a] shadow-xl"
         style={{
           transform: 'rotateY(-4deg) rotateX(2deg)',
           boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05)',
-          aspectRatio: '3/4',
+          aspectRatio: isLandscape ? '4/3' : '3/4',
+          maxWidth: isLandscape ? '420px' : '360px',
         }}
       >
         {/* Camera and sensor on top bezel */}

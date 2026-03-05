@@ -130,7 +130,7 @@ export const featureCards: FeatureCard[] = [
     link: '/platform',
     statLabel: 'Daily operational summary',
     statValue: 'One view',
-    visual: 'dashboard',
+    visual: 'census',
     tone: 'sand',
   },
 ];
@@ -140,7 +140,7 @@ export const workflowSteps = ['Discharge', 'Assign', 'Complete', 'Verify', 'Impr
 export const metrics = [
   {
     label: 'Faster discharge-to-ready bed',
-    value: '-42%',
+    value: '42%',
     snippet: 'Automated role routing reduced average turnaround from discharge to placement-ready status.',
   },
   {
@@ -157,7 +157,7 @@ export const metrics = [
 
 export const testimonial = {
   quote:
-    'ComplyCare.ai gave us full accountability across every role. We can now see who did what, when it happened, and where to fix delays before they hurt operations.',
+    'ComplyCare.io gave us full accountability across every role. We can now see who did what, when it happened, and where to fix delays before they hurt operations.',
   name: 'Katherine Liu',
   title: 'VP Operations',
   organization: 'Regional Post-Acute Group',

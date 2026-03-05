@@ -12,7 +12,7 @@ export function ResourcesPage() {
     <>
       <PageMeta
         title="Resources"
-        description="Browse ComplyCare.ai guides, case studies, and insights for post-acute care operations and compliance teams."
+        description="Browse ComplyCare.io guides, case studies, and insights for post-acute care operations and compliance teams."
         path="/resources"
       />
       <SiteShell includeFinalCta>

@@ -6,7 +6,7 @@ import { cx } from '../utils/cx';
 
 function Brand() {
   return (
-    <NavLink to="/" className="inline-flex items-center" aria-label="ComplyCare.ai home">
+    <NavLink to="/" className="inline-flex items-center" aria-label="ComplyCare.io home">
       <img
         src="/complycare-logo.svg"
         alt="ComplyCare"
@@ -49,8 +49,8 @@ export function MarketingNavbar() {
 
           <div className="hidden items-center lg:flex">
             <Link
-              to="/contact"
-              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#1A0A47] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#2E216B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A0A47]"
+              to="/#request-demo"
+              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-black px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Schedule a demo
             </Link>
@@ -84,9 +84,9 @@ export function MarketingNavbar() {
               ))}
             </nav>
             <Link
-              to="/contact"
+              to="/#request-demo"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 flex w-full shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#1A0A47] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#2E216B]"
+              className="mt-4 flex w-full shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
             >
               Schedule a demo
             </Link>

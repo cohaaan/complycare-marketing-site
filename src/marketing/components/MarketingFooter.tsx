@@ -18,8 +18,8 @@ export function MarketingFooter() {
               Unified operations and compliance intelligence for post-acute care. Desktop oversight and mobile execution on one live system.
             </p>
             <div className="mt-5 text-sm text-[#4E6478]">
-              <p>Contact: sales@complycare.ai</p>
-              <p>Phone: (888) 204-2710</p>
+              <p>Contact: info@complycare.io</p>
+              <p>Phone: 347-777-7838</p>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export function MarketingFooter() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-[#E4EDF5] pt-6 text-xs text-[#8FA3B5] sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} ComplyCare.ai. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ComplyCare.io. All rights reserved.</p>
           <p>HIPAA-ready platform posture. Security package available under NDA.</p>
         </div>
       </div>

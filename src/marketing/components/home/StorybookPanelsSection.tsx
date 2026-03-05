@@ -67,14 +67,14 @@ export function StorybookPanelsSection() {
               className="h-full w-full object-cover object-top"
             />
           </div>
-          <p className="mt-4 text-center font-display text-4xl font-semibold leading-tight text-[#2E4057] sm:text-5xl lg:text-7xl">
+          <p className="mt-4 mb-16 text-center font-display text-4xl font-semibold leading-tight text-[#2E4057] sm:text-5xl lg:text-7xl">
             Know What&apos;s Done.
             <br />
             Fix What&apos;s Stuck.
           </p>
         </div>
         <SectionIntro
-          eyebrow="How teams use ComplyCare.ai"
+          eyebrow="How teams use ComplyCare.io"
           title="High-contrast workflows built for speed, clarity, and trust"
           description="Inspired by premium consumer storytelling patterns but tailored for enterprise healthcare decision-makers."
         />

@@ -1,4 +1,3 @@
-import { CTAButton } from '../components/CTAButton';
 import { PageMeta } from '../components/PageMeta';
 import { Reveal } from '../components/Reveal';
 import { SectionIntro } from '../components/SectionIntro';
@@ -8,7 +7,7 @@ import { companyValues } from '../data/content';
 const milestones = [
   {
     year: '2023',
-    text: 'ComplyCare.ai founded to address fragmented post-acute compliance and operations workflows.',
+    text: 'ComplyCare.io founded to address fragmented post-acute compliance and operations workflows.',
   },
   {
     year: '2024',
@@ -29,14 +28,14 @@ export function AboutPage() {
     <>
       <PageMeta
         title="About"
-        description="Learn about ComplyCare.ai mission, values, and team focus on compliance and operations intelligence in post-acute care."
+        description="Learn about ComplyCare.io mission, values, and team focus on compliance and operations intelligence in post-acute care."
         path="/about"
       />
       <SiteShell includeFinalCta>
         <section className="section-pad border-b border-[#E4EDF5]">
           <div className="cc-container">
             <SectionIntro
-              eyebrow="About ComplyCare.ai"
+              eyebrow="About ComplyCare.io"
               title="Building the operating system for post-acute care operations and compliance"
               description="We help care organizations move faster and stay audit-ready by replacing siloed tools with one live platform for oversight and execution."
             />
@@ -72,10 +71,6 @@ export function AboutPage() {
                 </li>
               ))}
             </ol>
-
-            <div className="mt-8">
-              <CTAButton to="/contact">Meet the team</CTAButton>
-            </div>
           </div>
         </section>
       </SiteShell>

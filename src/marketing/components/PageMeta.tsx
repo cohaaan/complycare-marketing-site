@@ -6,7 +6,7 @@ type PageMetaProps = {
   path: string;
 };
 
-const BASE_TITLE = 'ComplyCare.ai';
+const BASE_TITLE = 'ComplyCare.io';
 
 export function PageMeta({ title, description, path }: PageMetaProps) {
   useEffect(() => {
@@ -21,7 +21,7 @@ export function PageMeta({ title, description, path }: PageMetaProps) {
 
     const canonicalTag = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonicalTag.setAttribute('rel', 'canonical');
-    canonicalTag.setAttribute('href', `https://complycare.ai${path}`);
+    canonicalTag.setAttribute('href', `https://complycare.io${path}`);
     if (!canonicalTag.parentElement) {
       document.head.appendChild(canonicalTag);
     }

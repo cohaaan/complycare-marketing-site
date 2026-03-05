@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react';
 import { workflowSteps } from '../../data/content';
-import { CTAButton } from '../CTAButton';
 import { ProductCanvas } from '../ProductCanvas';
 import { Reveal } from '../Reveal';
 import { SectionIntro } from '../SectionIntro';
@@ -35,12 +34,6 @@ export function WorkflowSection() {
             </div>
           </div>
         </Reveal>
-
-        <div className="mt-8">
-          <CTAButton to="/platform" variant="secondary">
-            Explore Platform
-          </CTAButton>
-        </div>
       </div>
     </section>
   );

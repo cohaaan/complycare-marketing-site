@@ -1,15 +1,8 @@
-import { useEffect, useState } from 'react';
 import {
   Activity,
-  Bell,
   Building2,
   FileSignature,
-  FileText,
-  Folder,
-  LayoutGrid,
-  Layers,
   Search,
-  Settings,
 } from 'lucide-react';
 import { cx } from '../utils/cx';
 
@@ -374,54 +367,8 @@ function AlertsBody() {
 }
 
 function Shell({ variant }: { variant: ProductVisual }) {
-  const sidebarItems: Array<{ label: string; view: ProductVisual; Icon: typeof LayoutGrid }> = [
-    { label: 'Dashboard', view: 'dashboard', Icon: LayoutGrid },
-    { label: 'Floor', view: 'floor', Icon: Layers },
-    { label: 'Reports', view: 'census', Icon: FileText },
-    { label: 'Binders', view: 'documents', Icon: Folder },
-    { label: 'Alerts', view: 'alerts', Icon: Bell },
-    { label: 'Settings', view: 'dashboard', Icon: Settings },
-  ];
-
-  const [activeView, setActiveView] = useState<ProductVisual>(variant);
-
-  useEffect(() => {
-    setActiveView(variant);
-  }, [variant]);
-
   return (
-    <div className="flex h-full min-h-0 bg-[#F3F4F6]">
-      <aside className="w-[136px] shrink-0 border-r border-[#E5E7EB] bg-[#F3F4F6] px-2 py-2">
-        <div className="mb-2 flex items-center gap-1.5 rounded-lg px-1.5 py-1">
-          <BrandMark size={16} />
-          <div className="leading-none">
-            <p className="text-[8.5px] font-bold text-[#111827]">ComplyCare</p>
-            <p className="text-[7px] font-semibold text-[#6B7280]">Dashboard</p>
-          </div>
-        </div>
-
-        <div className="space-y-1">
-          {sidebarItems.map(({ label, view, Icon }) => {
-            const active = view === activeView;
-            return (
-              <button
-                key={`${label}-${view}`}
-                type="button"
-                onClick={() => setActiveView(view)}
-                className={cx(
-                  'flex w-full items-center gap-1.5 rounded-lg px-1.5 py-1 text-left text-[7.5px] font-semibold transition',
-                  active ? 'bg-[#EEF2FF] text-[#4338CA]' : 'text-[#6B7280] hover:bg-[#F3F4F6]',
-                )}
-              >
-                <Icon size={10} />
-                <span className="truncate">{label}</span>
-                {label === 'Alerts' ? <span className="ml-auto rounded-full bg-[#EC4899] px-1 py-0 text-[6px] font-bold text-white">3</span> : null}
-              </button>
-            );
-          })}
-        </div>
-      </aside>
-
+    <div className="flex h-full min-h-0 flex-col bg-[#F3F4F6]">
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="flex h-8 items-center justify-between border-b border-[#E5E7EB] bg-[#F3F4F6] px-2.5">
           <div className="flex items-center gap-1.5">
@@ -438,11 +385,11 @@ function Shell({ variant }: { variant: ProductVisual }) {
         </div>
 
         <div className="min-h-0 flex-1 overflow-hidden p-1.5">
-          {activeView === 'dashboard' ? <DashboardBody /> : null}
-          {activeView === 'floor' ? <FloorBody /> : null}
-          {activeView === 'census' ? <CensusBody /> : null}
-          {activeView === 'documents' ? <DocumentsBody /> : null}
-          {activeView === 'alerts' ? <AlertsBody /> : null}
+          {variant === 'dashboard' ? <DashboardBody /> : null}
+          {variant === 'floor' ? <FloorBody /> : null}
+          {variant === 'census' ? <CensusBody /> : null}
+          {variant === 'documents' ? <DocumentsBody /> : null}
+          {variant === 'alerts' ? <AlertsBody /> : null}
         </div>
       </div>
     </div>
@@ -469,7 +416,7 @@ export function ProductCanvas({ variant, className }: ProductCanvasProps) {
         <img
           src="/end-of-day-report.png"
           alt="End of Day Report - Bed Tracker"
-          className="h-full w-full object-cover object-top"
+          className="h-full w-full object-cover object-right"
         />
       </div>
     );
@@ -493,8 +440,7 @@ export function ProductCanvas({ variant, className }: ProductCanvasProps) {
         <img
           src="/floor-plan.png"
           alt="Floor Management - Floor 2"
-          className="h-full w-full object-cover object-top"
-          style={{ clipPath: 'inset(0 0 20% 0)' }}
+          className="h-full w-full object-contain object-center"
         />
       </div>
     );

@@ -33,7 +33,7 @@ export function SolutionsPostAcutePage() {
     <>
       <PageMeta
         title="Post-Acute Solutions"
-        description="ComplyCare.ai helps post-acute organizations run faster admissions and cleaner compliance workflows with one operating system."
+        description="ComplyCare.io helps post-acute organizations run faster admissions and cleaner compliance workflows with one operating system."
         path="/solutions/post-acute"
       />
       <SiteShell includeFinalCta>
@@ -42,7 +42,7 @@ export function SolutionsPostAcutePage() {
             <SectionIntro
               eyebrow="Solutions for post-acute care"
               title="Built for the operational complexity of skilled nursing and transitional care"
-              description="ComplyCare.ai aligns administrators, admissions, nursing, compliance, and floor teams on one live platform for speed and defensibility."
+              description="ComplyCare.io aligns administrators, admissions, nursing, compliance, and floor teams on one live platform for speed and defensibility."
             />
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -86,7 +86,7 @@ export function SolutionsPostAcutePage() {
             <SectionIntro
               eyebrow="Expected outcomes"
               title="Operational speed without compliance compromise"
-              description="Teams deploying ComplyCare.ai improve throughput and reduce risk through workflow standardization and live accountability."
+              description="Teams deploying ComplyCare.io improve throughput and reduce risk through workflow standardization and live accountability."
             />
 
             <div className="mt-8 grid gap-4 lg:grid-cols-3">

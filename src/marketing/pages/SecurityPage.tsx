@@ -33,7 +33,7 @@ export function SecurityPage() {
     <>
       <PageMeta
         title="Security"
-        description="Review ComplyCare.ai security posture, HIPAA-ready controls, SOC 2 program status, and enterprise governance modules."
+        description="Review ComplyCare.io security posture, HIPAA-ready controls, SOC 2 program status, and enterprise governance modules."
         path="/security"
       />
       <SiteShell includeFinalCta>
@@ -42,7 +42,7 @@ export function SecurityPage() {
             <SectionIntro
               eyebrow="Security center"
               title="Healthcare-grade controls for enterprise operators"
-              description="ComplyCare.ai is built with HIPAA-ready controls and a SOC 2-oriented control framework to support post-acute compliance requirements."
+              description="ComplyCare.io is built with HIPAA-ready controls and a SOC 2-oriented control framework to support post-acute compliance requirements."
             />
 
             <div className="mt-8 flex flex-wrap gap-2">
