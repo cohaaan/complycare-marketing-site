@@ -1,5 +1,4 @@
 import { FormEvent, useState } from 'react';
-import { CTAButton } from '../components/CTAButton';
 import { PageMeta } from '../components/PageMeta';
 import { SectionIntro } from '../components/SectionIntro';
 import { SiteShell } from '../components/SiteShell';
@@ -24,14 +23,44 @@ const initialState: FormState = {
   message: '',
 };
 
+const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
 export function ContactPage() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
-    setForm(initialState);
+    if (!SCRIPT_URL) {
+      setError('Form is not configured. Set VITE_GOOGLE_SCRIPT_URL in your environment.');
+      return;
+    }
+    setError(null);
+    setLoading(true);
+    const formData = {
+      name: form.fullName,
+      email: form.email,
+      company: form.organization,
+      phone: form.facilities,
+      message: `Role: ${form.role}\nFacilities: ${form.facilities}\n\n${form.message}`,
+      requestDemo: true,
+    };
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      setSubmitted(true);
+      setForm(initialState);
+    } catch {
+      setError('Something went wrong. Please try again or email info@complycare.io.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,11 +87,6 @@ export function ContactPage() {
                   <li>Integration and security discussion based on your environment</li>
                   <li>Implementation timeline and rollout considerations</li>
                 </ul>
-                <div className="mt-6">
-                  <CTAButton to="/pricing" variant="secondary">
-                    Prefer pricing first?
-                  </CTAButton>
-                </div>
               </div>
             </div>
 
@@ -81,34 +105,45 @@ export function ContactPage() {
               ) : null}
 
               <form className="grid gap-4" onSubmit={onSubmit}>
+                {error && (
+                  <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+                    {error}
+                  </p>
+                )}
                 <label className="grid gap-1 text-sm text-[#4E6478]">
                   Full name
                   <input
                     type="text"
+                    name="fullName"
                     required
                     value={form.fullName}
                     onChange={(event) => setForm((current) => ({ ...current, fullName: event.target.value }))}
-                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none"
+                    disabled={loading}
+                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none disabled:opacity-60"
                   />
                 </label>
                 <label className="grid gap-1 text-sm text-[#4E6478]">
                   Work email
                   <input
                     type="email"
+                    name="email"
                     required
                     value={form.email}
                     onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none"
+                    disabled={loading}
+                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none disabled:opacity-60"
                   />
                 </label>
                 <label className="grid gap-1 text-sm text-[#4E6478]">
                   Organization
                   <input
                     type="text"
+                    name="organization"
                     required
                     value={form.organization}
                     onChange={(event) => setForm((current) => ({ ...current, organization: event.target.value }))}
-                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none"
+                    disabled={loading}
+                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none disabled:opacity-60"
                   />
                 </label>
 
@@ -117,18 +152,22 @@ export function ContactPage() {
                     Facilities
                     <input
                       type="text"
+                      name="facilities"
                       required
                       value={form.facilities}
                       onChange={(event) => setForm((current) => ({ ...current, facilities: event.target.value }))}
-                      className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none"
+                      disabled={loading}
+                      className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none disabled:opacity-60"
                     />
                   </label>
                   <label className="grid gap-1 text-sm text-[#4E6478]">
                     Role
                     <select
+                      name="role"
                       value={form.role}
                       onChange={(event) => setForm((current) => ({ ...current, role: event.target.value }))}
-                      className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none"
+                      disabled={loading}
+                      className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none disabled:opacity-60"
                     >
                       {roles.map((role) => (
                         <option key={role} value={role}>
@@ -142,19 +181,22 @@ export function ContactPage() {
                 <label className="grid gap-1 text-sm text-[#4E6478]">
                   Message
                   <textarea
+                    name="message"
                     rows={4}
                     value={form.message}
                     onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
-                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none"
+                    disabled={loading}
+                    className="rounded-lg border border-[#E4EDF5] bg-white px-3 py-2 text-sm text-[#2E4057] focus:border-[#5BBFA0] focus:outline-none disabled:opacity-60"
                     placeholder="Tell us about your priorities: admissions throughput, audit prep, or multi-site operations."
                   />
                 </label>
 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#5BBFA0] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3DA882]"
+                  disabled={loading}
+                  className="inline-flex items-center justify-center rounded-xl bg-[#5BBFA0] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3DA882] disabled:opacity-60"
                 >
-                  Submit request
+                  {loading ? 'Sending…' : 'Submit request'}
                 </button>
               </form>
             </div>

@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom';
 import { CTAButton } from '../components/CTAButton';
 import { PageMeta } from '../components/PageMeta';
 import { ProductCanvas } from '../components/ProductCanvas';
-import { ProductMockup } from '../components/ProductMockup';
 import { Reveal } from '../components/Reveal';
 import { SectionIntro } from '../components/SectionIntro';
 import { SiteShell } from '../components/SiteShell';
 import { platformCapabilities } from '../data/content';
-
-const platformHeroImage =
-  'https://images.unsplash.com/photo-1731515136376-3f6148af73cf?auto=format&fit=crop&fm=jpg&q=80&w=2200';
 
 const assistantPrompts = [
   {
@@ -46,34 +42,19 @@ export function PlatformPage() {
       <SiteShell includeFinalCta>
         <section className="section-pad border-b border-[#E4EDF5]">
           <div className="cc-container">
-            <div className="grid grid-cols-12 gap-8 lg:items-center">
-              <div className="col-span-12 lg:col-span-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#4E6478]">Platform Overview</p>
-                <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-[#2E4057] sm:text-5xl">
-                  One platform. Two execution surfaces. Zero data silos.
-                </h1>
-                <p className="mt-5 text-lg leading-relaxed text-[#4E6478]">
-                  ComplyCare.io delivers enterprise oversight on desktop and real-time workflow execution on mobile through one live data model.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <CTAButton to="/contact">See platform</CTAButton>
-                  <CTAButton to="/pricing" variant="secondary">
-                    Get pricing
-                  </CTAButton>
-                </div>
-              </div>
-              <div className="col-span-12 lg:col-span-6">
-                <div className="space-y-4">
-                  <div className="overflow-hidden rounded-3xl border border-[#E4EDF5] shadow-[0_14px_36px_rgba(46,64,87,0.12)]">
-                    <img
-                      src={platformHeroImage}
-                      alt="Care operations team collaborating in a facility hallway"
-                      className="h-[240px] w-full object-cover sm:h-[300px]"
-                      loading="lazy"
-                    />
-                  </div>
-                  <ProductMockup />
-                </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#4E6478]">Platform Overview</p>
+              <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-[#2E4057] sm:text-5xl">
+                One platform. Two execution surfaces. Zero data silos.
+              </h1>
+              <p className="mt-5 text-lg leading-relaxed text-[#4E6478]">
+                ComplyCare.io delivers enterprise oversight on desktop and real-time workflow execution on mobile through one live data model.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CTAButton to="/contact">See platform</CTAButton>
+                <CTAButton to="/pricing" variant="secondary">
+                  Get pricing
+                </CTAButton>
               </div>
             </div>
           </div>
@@ -155,7 +136,6 @@ export function PlatformPage() {
                     Highlights who, what, and where performance is below expected standard.
                   </li>
                 </ul>
-                <ProductCanvas variant="dashboard" className="mt-5" />
               </div>
             </div>
           </div>
