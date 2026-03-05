@@ -14,7 +14,7 @@ function Brand() {
       <img
         src="/complycare-logo.svg"
         alt="ComplyCare"
-        className="h-auto w-48 min-w-[160px] sm:h-12 sm:w-auto sm:min-w-0"
+        className="h-auto max-h-[60px] w-full max-w-full object-contain object-center sm:h-12 sm:max-h-none sm:w-auto sm:max-w-none"
       />
     </NavLink>
   );
