@@ -6,7 +6,11 @@ import { cx } from '../utils/cx';
 
 function Brand() {
   return (
-    <NavLink to="/" className="inline-flex items-center" aria-label="ComplyCare.io home">
+    <NavLink
+      to="/"
+      className="inline-flex flex-1 justify-center items-center lg:flex-none lg:justify-start"
+      aria-label="ComplyCare.io home"
+    >
       <img
         src="/complycare-logo.svg"
         alt="ComplyCare"
