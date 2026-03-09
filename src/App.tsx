@@ -4,6 +4,7 @@ import { ContactPage } from './marketing/pages/ContactPage';
 import { HomePage } from './marketing/pages/HomePage';
 import { NotFoundPage } from './marketing/pages/NotFoundPage';
 import { PlatformPage } from './marketing/pages/PlatformPage';
+import { PaymentsPage } from './marketing/pages/PaymentsPage';
 import { PricingPage } from './marketing/pages/PricingPage';
 import { ResourcesPage } from './marketing/pages/ResourcesPage';
 import { SecurityPage } from './marketing/pages/SecurityPage';
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/payments" element={<PaymentsPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -287,6 +287,7 @@ export const footerColumns = [
       { label: 'Platform', href: '/platform' },
       { label: 'Security', href: '/security' },
       { label: 'Pricing', href: '/pricing' },
+      { label: 'Payments', href: '/payments' },
     ],
   },
   {
