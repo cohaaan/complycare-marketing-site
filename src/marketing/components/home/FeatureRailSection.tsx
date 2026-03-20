@@ -140,7 +140,15 @@ function MobileFeatureCarousel() {
           <p className="mt-2 text-sm leading-relaxed text-[#4E6478]">{mobileVideoCard.summary}</p>
           <div className="mt-4 overflow-hidden rounded-xl">
             <iPadFrame className="w-full" orientation="landscape">
-              <video src={mobileVideoCard.videoSrc} autoPlay loop muted playsInline className="h-full w-full" />
+              <video
+                src={mobileVideoCard.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="h-full w-full"
+              />
             </iPadFrame>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{mobileVideoCard.detail}</p>
