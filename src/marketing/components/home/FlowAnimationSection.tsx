@@ -25,7 +25,7 @@ export function FlowAnimationSection() {
         aria-hidden
       />
       <div className="relative z-20 mt-auto flex w-full flex-col items-center px-2 pb-6 pt-2 sm:px-6 sm:pb-24 sm:pt-6">
-        <div className="w-full max-w-2xl sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24">
+        <div className="w-full max-w-2xl translate-y-16 sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24">
           <BedTrackerDashboard />
         </div>
       </div>
