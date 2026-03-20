@@ -24,12 +24,9 @@ export function FlowAnimationSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-[min(62vh,600px)] bg-[linear-gradient(to_top,#f2f6fa_0%,rgba(242,246,250,0.88)_22%,rgba(242,246,250,0.45)_52%,rgba(232,242,252,0.12)_78%,transparent_100%)]"
         aria-hidden
       />
-      <div className="relative z-20 mt-auto flex w-full flex-col items-center px-3 pb-8 pt-2 sm:px-6 sm:pb-24 sm:pt-6">
-        <div className="w-full max-w-2xl -translate-y-6 sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24">
-          {/* Scale down on mobile so it reads as a compact preview */}
-          <div className="origin-top scale-[0.65] sm:scale-100 max-sm:-mb-[35%]">
-            <BedTrackerDashboard />
-          </div>
+      <div className="relative z-20 mt-auto flex w-full flex-col items-center px-2 pb-6 pt-2 sm:px-6 sm:pb-24 sm:pt-6">
+        <div className="w-full max-w-2xl sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24">
+          <BedTrackerDashboard />
         </div>
       </div>
     </section>
