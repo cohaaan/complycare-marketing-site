@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { ScrollToTop } from './ScrollToTop';
 import { AboutPage } from './marketing/pages/AboutPage';
 import { ContactPage } from './marketing/pages/ContactPage';
 import { HomePage } from './marketing/pages/HomePage';
@@ -19,6 +20,7 @@ export default function App() {
         v7_relativeSplatPath: true,
       }}
     >
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/platform" element={<PlatformPage />} />

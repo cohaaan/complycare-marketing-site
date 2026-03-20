@@ -32,11 +32,11 @@ const navItems = [
 export function BedTrackerDashboard() {
   return (
     <div
-      className="relative z-10 flex w-full max-w-2xl overflow-hidden rounded-2xl border border-[#e4edf5] bg-white shadow-[0_22px_56px_rgba(46,64,87,0.14),0_2px_8px_rgba(46,64,87,0.06)] ring-1 ring-[#2e4057]/[0.04]"
+      className="relative z-10 flex w-full max-w-2xl overflow-hidden rounded-xl border border-[#e4edf5] bg-white shadow-[0_22px_56px_rgba(46,64,87,0.14),0_2px_8px_rgba(46,64,87,0.06)] ring-1 ring-[#2e4057]/[0.04] sm:rounded-2xl"
       style={{ fontFamily: 'Inter, sans-serif' }}
     >
       {/* Below sm: icon-only rail; sm+ matches prior label + width behavior */}
-      <aside className="flex w-12 shrink-0 flex-col items-stretch border-r border-[#e5e7eb] bg-gradient-to-b from-white to-[#f8fafc] py-1 sm:w-40 sm:py-2">
+      <aside className="flex w-10 shrink-0 flex-col items-stretch border-r border-[#e5e7eb] bg-gradient-to-b from-white to-[#f8fafc] py-0.5 sm:w-40 sm:py-2">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
@@ -45,11 +45,11 @@ export function BedTrackerDashboard() {
               type="button"
               title={item.label}
               aria-label={item.label}
-              className={`relative flex w-full shrink-0 flex-col items-center justify-center gap-0 px-0 py-1.5 text-center text-[10px] font-medium leading-snug transition-colors sm:flex-row sm:items-center sm:justify-start sm:gap-2 sm:px-2 sm:py-2.5 sm:text-left sm:text-[11px] ${
+              className={`relative flex w-full shrink-0 flex-col items-center justify-center gap-0 px-0 py-1 text-center text-[10px] font-medium leading-snug transition-colors sm:flex-row sm:items-center sm:justify-start sm:gap-2 sm:px-2 sm:py-2.5 sm:text-left sm:text-[11px] ${
                 item.active ? 'bg-[#eff6ff] text-[#2563eb]' : 'text-[#4b5563] hover:bg-[#f9fafb]'
               }`}
             >
-              <Icon className="size-[1.125rem] shrink-0 sm:size-3.5" strokeWidth={2} />
+              <Icon className="size-4 shrink-0 sm:size-3.5" strokeWidth={2} />
               <span className="hidden min-w-0 flex-1 hyphens-auto sm:block sm:text-left">{item.label}</span>
               {item.badge != null && (
                 <span className="absolute right-0 top-1 flex min-w-[1rem] items-center justify-center rounded-full bg-red-500 px-0.5 text-[7px] font-semibold leading-none text-white sm:right-2 sm:top-1/2 sm:size-4 sm:-translate-y-1/2 sm:text-[8px]">
@@ -59,58 +59,58 @@ export function BedTrackerDashboard() {
             </button>
           );
         })}
-        <div className="mt-0 shrink-0 border-t border-[#e5e7eb] pt-1 sm:mt-auto sm:pt-2">
+        <div className="mt-0 shrink-0 border-t border-[#e5e7eb] pt-0.5 sm:mt-auto sm:pt-2">
           <button
             type="button"
             title="Logout"
             aria-label="Logout"
-            className="flex w-full shrink-0 flex-col items-center justify-center gap-0 px-0 py-1.5 text-center text-[10px] text-[#4b5563] hover:bg-[#f9fafb] sm:flex-row sm:items-center sm:justify-start sm:gap-2 sm:px-2 sm:py-2 sm:text-left sm:text-xs"
+            className="flex w-full shrink-0 flex-col items-center justify-center gap-0 px-0 py-1 text-center text-[10px] text-[#4b5563] hover:bg-[#f9fafb] sm:flex-row sm:items-center sm:justify-start sm:gap-2 sm:px-2 sm:py-2 sm:text-left sm:text-xs"
           >
-            <LogOut className="size-[1.125rem] shrink-0 sm:size-3.5" strokeWidth={2} />
+            <LogOut className="size-4 shrink-0 sm:size-3.5" strokeWidth={2} />
             <span className="hidden min-w-0 flex-1 text-left sm:inline">Logout</span>
           </button>
         </div>
       </aside>
 
-      {/* Main content - squeezed */}
-      <main className="min-w-0 flex-1 overflow-auto px-1.5 py-2 sm:p-2">
-        <h1 className="mb-1.5 text-sm font-bold text-[#111827]">Hello, John</h1>
+      {/* Main content - squeezed; max-sm: tighter vertical rhythm for mobile */}
+      <main className="min-w-0 flex-1 overflow-auto px-1 py-1.5 sm:p-2">
+        <h1 className="mb-1 text-xs font-bold text-[#111827] sm:mb-1.5 sm:text-sm">Hello, John</h1>
 
         {/* Row 1: Large cards - Total Beds, Occupied Beds */}
-        <div className="mb-1.5 grid grid-cols-2 gap-1.5">
-          <div className="flex flex-col gap-1 rounded-md border border-[#e5e7eb] bg-white p-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+        <div className="mb-1 grid grid-cols-2 gap-1 sm:mb-1.5 sm:gap-1.5">
+          <div className="flex flex-col gap-0.5 rounded-md border border-[#e5e7eb] bg-white p-1 shadow-[0_1px_2px_rgba(0,0,0,0.05)] sm:gap-1 sm:p-1.5">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-lg font-extrabold text-[#111827]">60</p>
-                <p className="text-[9px] text-[#6b7280]">Total Beds</p>
+                <p className="text-base font-extrabold text-[#111827] sm:text-lg">60</p>
+                <p className="text-[8px] text-[#6b7280] sm:text-[9px]">Total Beds</p>
               </div>
-              <div className="flex size-6 items-center justify-center rounded bg-[#eff6ff]">
-                <BedDouble className="size-3.5 text-[#3b82f6]" strokeWidth={2} />
+              <div className="flex size-5 items-center justify-center rounded bg-[#eff6ff] sm:size-6">
+                <BedDouble className="size-3 text-[#3b82f6] sm:size-3.5" strokeWidth={2} />
               </div>
             </div>
             <div className="h-0.5 w-full overflow-hidden rounded-full bg-[#f3f4f6]">
               <div className="h-full w-full rounded-full bg-[#3b82f6]" />
             </div>
           </div>
-          <div className="flex flex-col gap-1 rounded-md border border-[#e5e7eb] bg-white p-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+          <div className="flex flex-col gap-0.5 rounded-md border border-[#e5e7eb] bg-white p-1 shadow-[0_1px_2px_rgba(0,0,0,0.05)] sm:gap-1 sm:p-1.5">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-lg font-extrabold text-[#111827]">52</p>
-                <p className="text-[9px] text-[#6b7280]">Occupied Beds</p>
+                <p className="text-base font-extrabold text-[#111827] sm:text-lg">52</p>
+                <p className="text-[8px] text-[#6b7280] sm:text-[9px]">Occupied Beds</p>
               </div>
-              <div className="flex size-6 items-center justify-center rounded bg-[#fef2f2]">
-                <Heart className="size-3.5 text-[#ef4444]" strokeWidth={2} />
+              <div className="flex size-5 items-center justify-center rounded bg-[#fef2f2] sm:size-6">
+                <Heart className="size-3 text-[#ef4444] sm:size-3.5" strokeWidth={2} />
               </div>
             </div>
             <div className="h-0.5 w-full overflow-hidden rounded-full bg-[#f3f4f6]">
               <div className="h-full w-[87%] rounded-full bg-[#ef4444]" />
             </div>
-            <p className="text-[8px] text-[#6b7280]">87%</p>
+            <p className="text-[7px] text-[#6b7280] sm:text-[8px]">87%</p>
           </div>
         </div>
 
         {/* Row 2: Smaller bed status cards */}
-        <div className="mb-1.5 grid grid-cols-4 gap-1">
+        <div className="mb-1 grid grid-cols-4 gap-0.5 sm:mb-1.5 sm:gap-1">
           {[
             { value: '3', label: 'Available Beds', pct: '3%', color: 'bg-[#22c55e]', icon: Activity, iconBg: 'bg-[#f0fdf4]', iconColor: 'text-[#22c55e]' },
             { value: '5', label: 'Cleaning/M...', pct: '0%', color: 'bg-[#eab308]', icon: SprayCan, iconBg: 'bg-[#fefce8]', iconColor: 'text-[#eab308]' },
@@ -121,15 +121,15 @@ export function BedTrackerDashboard() {
             return (
               <div
                 key={card.label}
-                className="flex flex-col gap-0.5 rounded border border-[#e5e7eb] bg-white p-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+                className="flex flex-col gap-0 rounded border border-[#e5e7eb] bg-white p-1 shadow-[0_1px_2px_rgba(0,0,0,0.05)] sm:gap-0.5 sm:p-1.5"
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-base font-extrabold text-[#111827]">{card.value}</p>
-                    <p className="text-[8px] text-[#6b7280]">{card.label}</p>
+                <div className="flex items-center justify-between gap-0.5">
+                  <div className="min-w-0">
+                    <p className="text-sm font-extrabold leading-none text-[#111827] sm:text-base">{card.value}</p>
+                    <p className="line-clamp-2 text-[7px] leading-tight text-[#6b7280] sm:text-[8px]">{card.label}</p>
                   </div>
-                  <div className={`flex size-5 items-center justify-center rounded ${card.iconBg}`}>
-                    <Icon className={`size-3 ${card.iconColor}`} strokeWidth={2} />
+                  <div className={`flex size-4 shrink-0 items-center justify-center rounded sm:size-5 ${card.iconBg}`}>
+                    <Icon className={`size-2.5 sm:size-3 ${card.iconColor}`} strokeWidth={2} />
                   </div>
                 </div>
                 <div className="h-0.5 w-full overflow-hidden rounded-full bg-[#f3f4f6]">
@@ -138,14 +138,14 @@ export function BedTrackerDashboard() {
                     style={{ width: card.pct === '0%' ? '1px' : card.pct }}
                   />
                 </div>
-                <p className="text-[8px] text-[#6b7280]">{card.pct}</p>
+                <p className="text-[7px] text-[#6b7280] sm:text-[8px]">{card.pct}</p>
               </div>
             );
           })}
         </div>
 
-        {/* Row 3: Compact insurance tags */}
-        <div className="mb-1.5 flex flex-wrap gap-1">
+        {/* Row 3: one horizontal row on mobile (scroll) to avoid tall wrap */}
+        <div className="mb-1 flex flex-nowrap gap-1 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mb-1.5 sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden">
           {[
             { label: 'Medicare', sub: 'Less than 30 days', count: '2', variant: 'green' as const },
             { label: 'Insurance Type', sub: 'Medicare', count: '2', variant: 'green' as const },
@@ -157,7 +157,7 @@ export function BedTrackerDashboard() {
           ].map((tag) => (
             <div
               key={`${tag.sub}-${tag.count}`}
-              className={`flex items-center gap-0.5 rounded border px-1 py-0.5 ${
+              className={`flex shrink-0 items-center gap-0.5 rounded border px-1 py-0.5 ${
                 tag.variant === 'red'
                   ? 'border-[#dc2626] bg-[#ef4444] text-white'
                   : tag.variant === 'orange'
@@ -213,28 +213,30 @@ export function BedTrackerDashboard() {
           ))}
         </div>
 
-        {/* Row 4: Charts - squeezed */}
-        <div className="grid grid-cols-[1.2fr_1fr] gap-1.5">
-          <div className="flex flex-col gap-1 rounded border border-[#e5e7eb] bg-white p-1.5 shadow-[0_2px_4px_rgba(0,0,0,0.06)]">
-            <p className="text-[10px] font-extrabold text-[#111827]">Patient Movement Trends</p>
-            <div className="flex h-[80px] w-full items-center justify-center overflow-hidden rounded bg-[#f9fafb]">
-              <span className="text-[10px] font-medium text-[#9ca3af]">Chart</span>
+        {/* Row 4: Charts - shorter placeholders on mobile */}
+        <div className="grid grid-cols-[1.2fr_1fr] gap-1 sm:gap-1.5">
+          <div className="flex flex-col gap-0.5 rounded border border-[#e5e7eb] bg-white p-1 shadow-[0_2px_4px_rgba(0,0,0,0.06)] sm:gap-1 sm:p-1.5">
+            <p className="line-clamp-1 text-[8px] font-extrabold text-[#111827] sm:text-[10px]">Patient Movement Trends</p>
+            <div className="flex h-[44px] w-full items-center justify-center overflow-hidden rounded bg-[#f9fafb] sm:h-[80px]">
+              <span className="text-[8px] font-medium text-[#9ca3af] sm:text-[10px]">Chart</span>
             </div>
             <div className="flex flex-wrap justify-center gap-0.5">
               {['7 Days', '30 Days', '90 Days', '1 Year', 'Refresh'].map((btn, i) => (
                 <span
                   key={btn}
-                  className={`rounded-full px-1 py-0.5 text-[8px] font-semibold ${i === 1 ? 'bg-[#e0e7ff] text-[#4338ca]' : 'text-[#4b5563]'}`}
+                  className={`inline-flex rounded-full px-0.5 py-0.5 text-[7px] font-semibold sm:px-1 sm:text-[8px] ${
+                    i === 1 ? 'bg-[#e0e7ff] text-[#4338ca]' : 'text-[#4b5563]'
+                  } ${btn === '30 Days' ? '' : 'max-sm:hidden'}`}
                 >
                   {btn}
                 </span>
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-1 rounded border border-[#e5e7eb] bg-white p-1.5 shadow-[0_2px_4px_rgba(0,0,0,0.06)]">
-            <p className="text-[10px] font-extrabold text-[#111827]">Patient Movement Distribution</p>
-            <div className="flex h-[80px] w-full items-center justify-center overflow-hidden rounded bg-[#f9fafb]">
-              <span className="text-[10px] font-medium text-[#9ca3af]">Chart</span>
+          <div className="flex flex-col gap-0.5 rounded border border-[#e5e7eb] bg-white p-1 shadow-[0_2px_4px_rgba(0,0,0,0.06)] sm:gap-1 sm:p-1.5">
+            <p className="line-clamp-1 text-[8px] font-extrabold text-[#111827] sm:text-[10px]">Patient Movement Distribution</p>
+            <div className="flex h-[44px] w-full items-center justify-center overflow-hidden rounded bg-[#f9fafb] sm:h-[80px]">
+              <span className="text-[8px] font-medium text-[#9ca3af] sm:text-[10px]">Chart</span>
             </div>
             <div className="grid grid-cols-2 gap-0.5 text-center">
               {[
@@ -244,8 +246,8 @@ export function BedTrackerDashboard() {
                 { n: '18', label: 'Admitted', color: 'text-[#9333ea]' },
               ].map((item) => (
                 <div key={item.label}>
-                  <p className={`text-[8px] font-bold ${item.color}`}>{item.n}</p>
-                  <p className="text-[8px] text-[#6b7280]">{item.label}</p>
+                  <p className={`text-[7px] font-bold sm:text-[8px] ${item.color}`}>{item.n}</p>
+                  <p className="text-[7px] text-[#6b7280] sm:text-[8px]">{item.label}</p>
                 </div>
               ))}
             </div>
