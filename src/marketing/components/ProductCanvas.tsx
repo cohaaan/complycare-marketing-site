@@ -6,11 +6,6 @@ import {
 } from 'lucide-react';
 import { cx } from '../utils/cx';
 
-// Figma design: BedTracker - Floor 2 Management (node 13:4)
-const FIGMA_EMBED_URL =
-  'https://www.figma.com/embed?embed_host=share&url=' +
-  encodeURIComponent('https://www.figma.com/design/1GPcZDqbfX2pP1uM4UgRBU/BedTracker---Floor-2-Management?node-id=13-4');
-
 export type ProductVisual = 'dashboard' | 'census' | 'documents' | 'alerts' | 'floor' | 'endOfDayReport' | 'auditReport';
 
 type ProductCanvasProps = {
@@ -400,12 +395,7 @@ export function ProductCanvas({ variant, className }: ProductCanvasProps) {
   if (variant === 'dashboard') {
     return (
       <div className={cx('shot-frame h-[280px] overflow-hidden bg-[#F3F4F6]', className)}>
-        <iframe
-          src={FIGMA_EMBED_URL}
-          title="BedTracker - Floor 2 Management"
-          className="h-full w-full border-0"
-          allowFullScreen
-        />
+        <Shell variant={variant} />
       </div>
     );
   }

@@ -1,11 +1,12 @@
 export function FlowAnimation() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div className="pointer-events-none absolute inset-0 z-0">
       <svg
         className="absolute inset-0 h-full w-full"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1920 1080"
-        preserveAspectRatio="xMidYMid slice"
+        viewBox="0 -120 2040 1200"
+        preserveAspectRatio="xMidYMid meet"
+        overflow="visible"
       >
         <style>
           {`

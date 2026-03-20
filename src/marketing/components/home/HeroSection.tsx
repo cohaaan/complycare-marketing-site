@@ -1,6 +1,6 @@
 export function HeroSection() {
   return (
-    <section className="relative border-b border-[#E4EDF5] pb-14 pt-14 sm:pb-20 sm:pt-16">
+    <section className="relative z-0 border-b border-[#E4EDF5] pb-14 pt-14 sm:pb-20 sm:pt-16">
       <div className="cc-container">
         <div className="flex flex-col items-center px-7 py-10 text-center sm:px-10 sm:py-12 lg:px-14 lg:py-14">
               <div className="relative inline-flex">

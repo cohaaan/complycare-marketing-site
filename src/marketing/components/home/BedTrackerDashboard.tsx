@@ -19,10 +19,6 @@ import {
   SprayCan,
 } from 'lucide-react';
 
-// Figma chart assets
-const chartTrends = 'https://www.figma.com/api/mcp/asset/69013e07-9d77-4b72-a8f8-1acdde1a9150';
-const chartDistribution = 'https://www.figma.com/api/mcp/asset/74699eba-d97f-476a-83fa-47c87508b60d';
-
 const navItems = [
   { label: 'Dashboard', icon: LayoutGrid, active: false },
   { label: 'Floor Management', icon: Grid3X3, active: false },
@@ -217,8 +213,8 @@ export function BedTrackerDashboard() {
         <div className="grid grid-cols-[1.2fr_1fr] gap-1.5">
           <div className="flex flex-col gap-1 rounded border border-[#e5e7eb] bg-white p-1.5 shadow-[0_2px_4px_rgba(0,0,0,0.06)]">
             <p className="text-[10px] font-extrabold text-[#111827]">Patient Movement Trends</p>
-            <div className="h-[80px] w-full overflow-hidden rounded bg-[#f9fafb]">
-              <img alt="Patient movement trends" className="size-full object-contain" src={chartTrends} />
+            <div className="flex h-[80px] w-full items-center justify-center overflow-hidden rounded bg-[#f9fafb]">
+              <span className="text-[10px] font-medium text-[#9ca3af]">Chart</span>
             </div>
             <div className="flex flex-wrap justify-center gap-0.5">
               {['7 Days', '30 Days', '90 Days', '1 Year', 'Refresh'].map((btn, i) => (
@@ -233,8 +229,8 @@ export function BedTrackerDashboard() {
           </div>
           <div className="flex flex-col gap-1 rounded border border-[#e5e7eb] bg-white p-1.5 shadow-[0_2px_4px_rgba(0,0,0,0.06)]">
             <p className="text-[10px] font-extrabold text-[#111827]">Patient Movement Distribution</p>
-            <div className="h-[80px] w-full overflow-hidden rounded bg-[#f9fafb]">
-              <img alt="Patient movement distribution" className="size-full object-contain" src={chartDistribution} />
+            <div className="flex h-[80px] w-full items-center justify-center overflow-hidden rounded bg-[#f9fafb]">
+              <span className="text-[10px] font-medium text-[#9ca3af]">Chart</span>
             </div>
             <div className="grid grid-cols-2 gap-0.5 text-center">
               {[

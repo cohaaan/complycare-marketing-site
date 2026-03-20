@@ -29,7 +29,7 @@ export default function App() {
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/payments" element={<PaymentsPage />} />
+        <Route path="/payments/liberty" element={<PaymentsPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
