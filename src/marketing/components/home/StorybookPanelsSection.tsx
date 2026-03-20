@@ -87,10 +87,10 @@ export function StorybookPanelsSection() {
           {storyPanels.map((panel, index) => (
             <article key={panel.id} className={cx('overflow-hidden rounded-[2rem] border bg-white shadow-[0_18px_46px_rgba(46,64,87,0.1)]', panel.borderClass)}>
               <div className={cx('grid lg:grid-cols-2', index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : '')}>
-                <div className={cx('min-h-[320px] p-4 sm:min-h-[360px] sm:p-5 lg:min-h-[460px] lg:p-6', panel.toneClass)}>
+                <div className={cx('min-h-[200px] p-4 sm:min-h-[320px] sm:p-5 lg:min-h-[460px] lg:p-6', panel.toneClass)}>
                   <ProductCanvas
                     variant={panel.visual}
-                    className="h-full min-h-[280px] w-full sm:min-h-[320px] lg:min-h-[412px] shadow-[0_18px_40px_rgba(46,64,87,0.22)]"
+                    className="h-full min-h-[180px] w-full sm:min-h-[280px] lg:min-h-[412px] shadow-[0_18px_40px_rgba(46,64,87,0.22)]"
                   />
                 </div>
 

@@ -80,7 +80,7 @@ function MobileFeatureCarousel() {
             key={feature.id}
             data-carousel-card
             data-carousel-index={index}
-            className={`card-premium flex min-h-[400px] w-[min(280px,calc(100vw-6rem))] shrink-0 snap-start snap-always flex-col rounded-2xl border p-4 ${toneClassMap[feature.tone]}`}
+            className={`card-premium flex h-[420px] max-h-[420px] w-[min(280px,calc(100vw-6rem))] shrink-0 snap-start snap-always flex-col overflow-hidden rounded-2xl border p-4 ${toneClassMap[feature.tone]}`}
           >
             <div className={`rounded-xl border px-3 py-2.5 ${innerBubbleClassMap[feature.tone]}`}>
               <div className="flex items-center justify-between gap-2">
@@ -93,15 +93,13 @@ function MobileFeatureCarousel() {
             <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#8FA3B5]">Capability</p>
             <h3 className="mt-1 font-display text-lg font-semibold leading-tight text-[#2E4057]">{feature.title}</h3>
             <p className="mt-1.5 text-xs leading-relaxed text-[#4E6478] line-clamp-3">{feature.summary}</p>
-            <div className="mt-3 flex min-h-0 flex-1 flex-col justify-center overflow-hidden">
+            <div className="mt-3 h-[120px] w-full shrink-0 overflow-hidden rounded-lg">
               {feature.videoSrc ? (
-                <iPadFrame className="w-full max-w-[260px] self-center" orientation="landscape">
-                  <video src={feature.videoSrc} autoPlay loop muted playsInline className="h-full w-full" />
+                <iPadFrame className="h-full w-full max-w-[260px] mx-auto" orientation="landscape">
+                  <video src={feature.videoSrc} autoPlay loop muted playsInline className="h-full w-full object-cover" />
                 </iPadFrame>
               ) : (
-                <div className="h-[140px] w-full overflow-hidden rounded-lg">
-                  <ProductCanvas variant={feature.visual} className="h-full w-full overflow-hidden rounded-lg" />
-                </div>
+                <ProductCanvas variant={feature.visual} className="h-full w-full overflow-hidden rounded-lg" />
               )}
             </div>
             <p className="mt-2 text-xs leading-relaxed text-[#4E6478] line-clamp-2">{feature.detail}</p>
