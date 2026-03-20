@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cx } from '../../utils/cx';
+import { CTAButton } from '../CTAButton';
 import { ProductCanvas, type ProductVisual } from '../ProductCanvas';
 import { SectionIntro } from '../SectionIntro';
 import { FeatureRailSection } from './FeatureRailSection';
@@ -77,7 +78,7 @@ export function StorybookPanelsSection() {
         <SectionIntro
           eyebrow="How teams use ComplyCare.io"
           title="High-contrast workflows built for speed, clarity, and trust"
-          description="Inspired by premium consumer storytelling patterns but tailored for enterprise healthcare decision-makers."
+          description="See how each team stays aligned from intake to audit."
         />
 
         <FeatureRailSection />
@@ -95,18 +96,15 @@ export function StorybookPanelsSection() {
 
                 <div className={cx('px-7 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12', panel.toneClass)}>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#4E6478]">{panel.tag}</p>
-                  <h3 className="mt-3 max-w-2xl font-display text-4xl font-semibold leading-[1.05] text-black sm:text-[2.9rem]">
+                  <h3 className="mt-3 max-w-2xl font-display text-2xl font-semibold leading-[1.1] text-black sm:text-3xl lg:text-4xl lg:leading-[1.05]">
                     {panel.title}
                   </h3>
                   <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#2E4057]">{panel.description}</p>
 
                   <div className="mt-7 flex flex-wrap items-center gap-3">
-                    <Link
-                      to={panel.ctaTo}
-                      className="inline-flex items-center justify-center rounded-2xl bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1F2937]"
-                    >
+                    <CTAButton to={panel.ctaTo} className="px-6 py-3">
                       {panel.ctaLabel}
-                    </Link>
+                    </CTAButton>
                     <Link
                       to={panel.ctaTo}
                       className="inline-flex items-center gap-2 text-sm font-semibold text-black underline decoration-2 underline-offset-4"

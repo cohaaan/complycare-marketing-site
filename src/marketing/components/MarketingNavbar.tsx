@@ -1,8 +1,9 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { navItems } from '../data/content';
 import { cx } from '../utils/cx';
+import { CTAButton } from './CTAButton';
 
 function Brand() {
   return (
@@ -32,6 +33,7 @@ export function MarketingNavbar() {
             menuOpen && 'rounded-b-none rounded-t-full',
           )}
         >
+          <div className="h-10 w-10 shrink-0 lg:hidden" aria-hidden />
           <Brand />
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
@@ -52,12 +54,9 @@ export function MarketingNavbar() {
           </nav>
 
           <div className="hidden items-center lg:flex">
-            <Link
-              to="/#request-demo"
-              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-black px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
+            <CTAButton to="/#request-demo" className="shrink-0 whitespace-nowrap">
               Schedule a demo
-            </Link>
+            </CTAButton>
           </div>
 
           <button
@@ -87,13 +86,13 @@ export function MarketingNavbar() {
                 </NavLink>
               ))}
             </nav>
-            <Link
+            <CTAButton
               to="/#request-demo"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 flex w-full shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              className="mt-4 flex w-full justify-center whitespace-nowrap"
             >
               Schedule a demo
-            </Link>
+            </CTAButton>
           </div>
         ) : null}
       </div>

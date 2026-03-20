@@ -2,11 +2,11 @@ import { ArrowUpRight } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { featureCards, type FeatureCard } from '../../data/content';
-
-const visibleFeatureCards = featureCards.filter((f) => f.id !== 'facility-ai-assistant');
 import { iPadFrame } from '../iPadFrame';
 import { ProductCanvas } from '../ProductCanvas';
 import { SectionIntro } from '../SectionIntro';
+
+const visibleFeatureCards = featureCards.filter((f) => f.id !== 'facility-ai-assistant');
 
 const toneClassMap: Record<FeatureCard['tone'], string> = {
   mint: '!bg-[#EAF7F2] border-[#CFE9DD]',
@@ -24,33 +24,112 @@ const innerBubbleClassMap: Record<FeatureCard['tone'], string> = {
   sand: 'bg-white border-[#ECE0C8]',
 };
 
-function FeatureVisual({ feature, compact }: { feature: FeatureCard; compact?: boolean }) {
-  return (
-    <div className={`rounded-2xl border p-3 ${innerBubbleClassMap[feature.tone]} ${compact ? 'mt-3' : 'mt-5'}`}>
-      <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#4E6478]">{feature.statLabel}</p>
-        <p className="font-display text-2xl font-semibold text-[#2E4057]">{feature.statValue}</p>
-      </div>
-      <ProductCanvas variant={feature.visual} className={`mt-2 overflow-hidden ${compact ? 'h-[140px]' : 'h-[220px]'}`} />
-    </div>
-  );
-}
+const CAROUSEL_IO_THRESHOLDS = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as const;
 
-function MobileStack() {
+function MobileFeatureCarousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const ratiosRef = useRef<number[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const root = scrollRef.current;
+    if (!root) {
+      return;
+    }
+
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-carousel-card]')];
+    ratiosRef.current = new Array(cards.length).fill(0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = Number((entry.target as HTMLElement).dataset.carouselIndex);
+          if (!Number.isNaN(idx) && idx >= 0 && idx < ratiosRef.current.length) {
+            ratiosRef.current[idx] = entry.intersectionRatio;
+          }
+        });
+        let bestI = 0;
+        let bestR = -1;
+        ratiosRef.current.forEach((r, i) => {
+          if (r > bestR) {
+            bestR = r;
+            bestI = i;
+          }
+        });
+        if (bestR > 0) {
+          setActiveIndex(bestI);
+        }
+      },
+      { root, rootMargin: '0px', threshold: [...CAROUSEL_IO_THRESHOLDS] },
+    );
+
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="mt-10 grid gap-4 md:hidden">
-      {visibleFeatureCards.map((feature) => (
-        <article key={feature.id} className={`card-premium min-h-[36rem] p-6 ${toneClassMap[feature.tone]}`}>
-          <h3 className="font-display text-2xl font-semibold text-[#2E4057]">{feature.title}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{feature.summary}</p>
-          <FeatureVisual feature={feature} />
-          <p className="mt-4 text-sm leading-relaxed text-[#4E6478]">{feature.detail}</p>
-          <Link to={feature.link} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#3DA882] hover:text-[#2E8E6D]">
-            Learn more
-            <ArrowUpRight size={14} />
-          </Link>
-        </article>
-      ))}
+    <div className="mt-10 md:hidden">
+      <div
+        ref={scrollRef}
+        className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        role="region"
+        aria-label="Platform modules — swipe sideways for more"
+      >
+        {visibleFeatureCards.map((feature, index) => (
+          <article
+            key={feature.id}
+            data-carousel-card
+            data-carousel-index={index}
+            className={`card-premium flex min-h-[400px] w-[min(280px,calc(100vw-6rem))] shrink-0 snap-start snap-always flex-col rounded-2xl border p-4 ${toneClassMap[feature.tone]}`}
+          >
+            <div className={`rounded-xl border px-3 py-2.5 ${innerBubbleClassMap[feature.tone]}`}>
+              <div className="flex items-center justify-between gap-2">
+                <p className="min-w-0 flex-1 text-[0.65rem] font-semibold uppercase leading-snug tracking-[0.14em] text-[#4E6478]">
+                  {feature.statLabel}
+                </p>
+                <p className="shrink-0 font-display text-lg font-semibold text-[#2E4057]">{feature.statValue}</p>
+              </div>
+            </div>
+            <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#8FA3B5]">Capability</p>
+            <h3 className="mt-1 font-display text-lg font-semibold leading-tight text-[#2E4057]">{feature.title}</h3>
+            <p className="mt-1.5 text-xs leading-relaxed text-[#4E6478] line-clamp-3">{feature.summary}</p>
+            <div className="mt-3 flex min-h-0 flex-1 flex-col justify-center overflow-hidden">
+              {feature.videoSrc ? (
+                <iPadFrame className="w-full max-w-[260px] self-center" orientation="landscape">
+                  <video src={feature.videoSrc} autoPlay loop muted playsInline className="h-full w-full" />
+                </iPadFrame>
+              ) : (
+                <div className="h-[140px] w-full overflow-hidden rounded-lg">
+                  <ProductCanvas variant={feature.visual} className="h-full w-full overflow-hidden rounded-lg" />
+                </div>
+              )}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-[#4E6478] line-clamp-2">{feature.detail}</p>
+            <Link
+              to={feature.link}
+              className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#3DA882] hover:text-[#2E8E6D]"
+            >
+              Learn more
+              <ArrowUpRight size={14} />
+            </Link>
+          </article>
+        ))}
+      </div>
+      <p className="mt-1 text-center text-xs text-[#8FA3B5]">Swipe for more modules</p>
+      <div
+        className="mt-3 flex justify-center gap-1.5"
+        aria-label={`Module ${activeIndex + 1} of ${visibleFeatureCards.length}`}
+      >
+        {visibleFeatureCards.map((feature, i) => (
+          <span
+            key={feature.id}
+            className={`h-1.5 rounded-full transition-[width,background-color] duration-200 ${
+              i === activeIndex ? 'w-5 bg-[#2E4057]' : 'w-1.5 bg-[#C5D4E0]'
+            }`}
+            aria-hidden
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -118,7 +197,7 @@ export function FeatureRailSection() {
           description="Scroll through the core workflows that keep teams aligned, tasks on time, and facility performance measurable."
         />
 
-        <MobileStack />
+        <MobileFeatureCarousel />
       </div>
 
       <div ref={sectionRef} className="relative mt-12 hidden h-[560vh] md:block">

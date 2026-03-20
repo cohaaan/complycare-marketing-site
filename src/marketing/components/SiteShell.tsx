@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Link } from 'react-router-dom';
+import { CTAButton } from './CTAButton';
 import { MarketingFooter } from './MarketingFooter';
 import { MarketingNavbar } from './MarketingNavbar';
 
@@ -20,18 +20,10 @@ function FinalGlobalCta() {
             Get a tailored walkthrough based on your admissions volume, facility count, and compliance priorities.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-[#5BBFA0] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#3DA882]"
-            >
-              Book a Demo
-            </Link>
-            <Link
-              to="/pricing"
-              className="inline-flex items-center justify-center rounded-xl border border-[#E4EDF5] bg-white px-5 py-3 text-sm font-semibold text-[#2E4057] transition hover:bg-[#F2F6FA]"
-            >
+            <CTAButton to="/contact">Book a Demo</CTAButton>
+            <CTAButton to="/pricing" variant="secondary">
               Get Pricing
-            </Link>
+            </CTAButton>
           </div>
         </div>
       </div>

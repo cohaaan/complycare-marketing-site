@@ -55,9 +55,11 @@ const FLOW_PATHS = [
   },
 ] as const;
 
+export const FLOW_STEP_LABELS: readonly string[] = FLOW_PATHS.map((p) => p.text);
+
 export function FlowAnimation() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 min-w-full">
+    <div className="pointer-events-none absolute inset-0 z-0 min-h-full min-w-full">
       <svg
         className="absolute inset-0 h-full min-h-full w-full min-w-full"
         xmlns="http://www.w3.org/2000/svg"

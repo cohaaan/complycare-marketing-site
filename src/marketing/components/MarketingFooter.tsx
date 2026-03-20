@@ -4,7 +4,7 @@ import { footerColumns } from '../data/content';
 export function MarketingFooter() {
   return (
     <footer className="border-t border-[#E4EDF5] bg-white">
-      <div className="cc-container py-14">
+      <div className="cc-container py-10 sm:py-14">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_3fr]">
           <div>
             <Link to="/" className="inline-flex items-center">
@@ -23,7 +23,7 @@ export function MarketingFooter() {
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 gap-x-8 sm:gap-8 lg:grid-cols-4">
             {footerColumns.map((column) => (
               <div key={column.heading}>
                 <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8FA3B5]">{column.heading}</h3>
@@ -41,7 +41,7 @@ export function MarketingFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-[#E4EDF5] pt-6 text-xs text-[#8FA3B5] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-2 border-t border-[#E4EDF5] pt-6 text-xs text-[#8FA3B5] sm:mt-12 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} ComplyCare.io. All rights reserved.</p>
           <p>HIPAA-ready platform posture. Security package available under NDA.</p>
         </div>

@@ -41,8 +41,8 @@ export function SecurityPage() {
           <div className="cc-container">
             <SectionIntro
               eyebrow="Security center"
-              title="Healthcare-grade controls for enterprise operators"
-              description="ComplyCare.io is built with HIPAA-ready controls and a SOC 2-oriented control framework to support post-acute compliance requirements."
+              title="Healthcare-grade controls for operators"
+              description="HIPAA-ready posture and a SOC 2–oriented framework built for post-acute compliance reviews."
             />
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -72,32 +72,29 @@ export function SecurityPage() {
         </section>
 
         <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
-          <div className="cc-container grid gap-4 sm:grid-cols-2">
-            {securityModules.map((module) => (
-              <Reveal key={module.title}>
-                <article className="h-full rounded-2xl border border-[#E4EDF5] bg-white p-6">
-                  <h2 className="font-display text-2xl font-semibold text-[#2E4057]">{module.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{module.text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
           <div className="cc-container">
             <SectionIntro
-              eyebrow="Control domains"
-              title="Security architecture aligned to enterprise review expectations"
-              description="Operational and technical controls are mapped to core risk areas commonly assessed by healthcare IT and compliance stakeholders."
+              eyebrow="Controls"
+              title="Security modules and control domains"
+              description="Technical and operational controls mapped to how healthcare IT and compliance teams review risk."
             />
 
-            <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {securityModules.map((module) => (
+                <Reveal key={module.title}>
+                  <article className="h-full rounded-2xl border border-[#E4EDF5] bg-white p-6">
+                    <h3 className="font-display text-xl font-semibold text-[#2E4057]">{module.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{module.text}</p>
+                  </article>
+                </Reveal>
+              ))}
               {controlAreas.map((area) => (
-                <article key={area.title} className="rounded-2xl border border-[#E4EDF5] bg-white p-5">
-                  <h3 className="font-display text-xl font-semibold text-[#2E4057]">{area.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#4E6478]">{area.text}</p>
-                </article>
+                <Reveal key={area.title}>
+                  <article className="h-full rounded-2xl border border-[#E4EDF5] bg-white p-6">
+                    <h3 className="font-display text-xl font-semibold text-[#2E4057]">{area.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{area.text}</p>
+                  </article>
+                </Reveal>
               ))}
             </div>
 

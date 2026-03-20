@@ -47,8 +47,8 @@ export function PlatformPage() {
               <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-[#2E4057] sm:text-5xl">
                 One platform. Two execution surfaces. Zero data silos.
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-[#4E6478]">
-                ComplyCare.io delivers enterprise oversight on desktop and real-time workflow execution on mobile through one live data model.
+              <p className="mt-5 text-base leading-relaxed text-[#4E6478] sm:text-lg">
+                Desktop command center and mobile execution share one live data model—no duplicate entry or sync lag.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <CTAButton to="/contact">See platform</CTAButton>
@@ -103,7 +103,7 @@ export function PlatformPage() {
             <SectionIntro
               eyebrow="Conversational intelligence"
               title="Talk to your facility in plain language"
-              description="ComplyCare.io answers compliance and accountability questions instantly, grounded in your live documentation, signatures, and workflow evidence."
+              description="Ask compliance and accountability questions and get answers grounded in live documentation, signatures, and workflow evidence."
             />
 
             <div className="mt-8 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
@@ -146,7 +146,7 @@ export function PlatformPage() {
             <SectionIntro
               eyebrow="Integration layer"
               title="PointClickCare-connected operations"
-              description="Synchronize census-related workflows and operational signals from existing systems while preserving ComplyCare.io as your execution and compliance source of truth."
+              description="Sync census and operational signals from existing systems while ComplyCare stays your source of truth for execution and compliance."
             />
 
             <div className="mt-8 rounded-3xl border border-[#5BBFA0]/40 bg-[#EAF7F2] p-6">

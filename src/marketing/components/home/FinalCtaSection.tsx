@@ -45,13 +45,13 @@ export function FinalCtaSection() {
   return (
     <section id="request-demo" className="section-pad -mt-px bg-[#F2F6FA]">
       <div className="cc-container">
-        <div className="grid gap-8 rounded-3xl border border-[#E4EDF5] bg-white p-7 shadow-[0_14px_34px_rgba(46,64,87,0.1)] sm:p-10 lg:grid-cols-[1.2fr_1fr]">
+        <div className="grid gap-5 rounded-3xl border border-[#E4EDF5] bg-white p-5 shadow-[0_14px_34px_rgba(46,64,87,0.1)] sm:gap-8 sm:p-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#4E6478]">Next step</p>
-            <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-[#2E4057] sm:text-4xl">
+            <h2 className="mt-2 max-w-xl font-display text-2xl font-semibold leading-tight text-[#2E4057] sm:mt-3 sm:text-3xl lg:text-4xl">
               Stay audit-ready. Keep operations moving.
             </h2>
-            <p className="mt-4 max-w-xl text-[#4E6478]">
+            <p className="mt-3 max-w-xl text-sm text-[#4E6478] sm:mt-4 sm:text-base">
               Tell us your facility footprint and top workflows. We will map the rollout plan and expected ROI in your demo.
             </p>
 
