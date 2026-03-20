@@ -7,6 +7,8 @@ import { ProductCanvas } from '../ProductCanvas';
 import { SectionIntro } from '../SectionIntro';
 
 const visibleFeatureCards = featureCards.filter((f) => f.id !== 'facility-ai-assistant');
+const mobileCarouselCards = visibleFeatureCards.filter((f) => !f.videoSrc);
+const mobileVideoCard = visibleFeatureCards.find((f) => f.videoSrc);
 
 const toneClassMap: Record<FeatureCard['tone'], string> = {
   mint: '!bg-[#EAF7F2] border-[#CFE9DD]',
@@ -75,7 +77,7 @@ function MobileFeatureCarousel() {
         role="region"
         aria-label="Platform modules — swipe sideways for more"
       >
-        {visibleFeatureCards.map((feature, index) => (
+        {mobileCarouselCards.map((feature, index) => (
           <article
             key={feature.id}
             data-carousel-card
@@ -94,13 +96,7 @@ function MobileFeatureCarousel() {
             <h3 className="mt-1 font-display text-lg font-semibold leading-tight text-[#2E4057]">{feature.title}</h3>
             <p className="mt-1.5 text-xs leading-relaxed text-[#4E6478] line-clamp-3">{feature.summary}</p>
             <div className="mt-3 h-[120px] w-full shrink-0 overflow-hidden rounded-lg">
-              {feature.videoSrc ? (
-                <iPadFrame className="h-full w-full max-w-[260px] mx-auto" orientation="landscape">
-                  <video src={feature.videoSrc} autoPlay loop muted playsInline className="h-full w-full object-cover" />
-                </iPadFrame>
-              ) : (
-                <ProductCanvas variant={feature.visual} className="h-full w-full overflow-hidden rounded-lg" />
-              )}
+              <ProductCanvas variant={feature.visual} className="h-full w-full overflow-hidden rounded-lg" />
             </div>
             <p className="mt-2 text-xs leading-relaxed text-[#4E6478] line-clamp-2">{feature.detail}</p>
             <Link
@@ -116,9 +112,9 @@ function MobileFeatureCarousel() {
       <p className="mt-1 text-center text-xs text-[#8FA3B5]">Swipe for more modules</p>
       <div
         className="mt-3 flex justify-center gap-1.5"
-        aria-label={`Module ${activeIndex + 1} of ${visibleFeatureCards.length}`}
+        aria-label={`Module ${activeIndex + 1} of ${mobileCarouselCards.length}`}
       >
-        {visibleFeatureCards.map((feature, i) => (
+        {mobileCarouselCards.map((feature, i) => (
           <span
             key={feature.id}
             className={`h-1.5 rounded-full transition-[width,background-color] duration-200 ${
@@ -128,6 +124,35 @@ function MobileFeatureCarousel() {
           />
         ))}
       </div>
+
+      {/* Featured video card — full width below carousel for visibility */}
+      {mobileVideoCard && (
+        <article className={`mt-6 rounded-2xl border p-5 ${toneClassMap[mobileVideoCard.tone]}`}>
+          <div className={`rounded-xl border px-3 py-2.5 ${innerBubbleClassMap[mobileVideoCard.tone]}`}>
+            <div className="flex items-center justify-between gap-2">
+              <p className="min-w-0 flex-1 text-[0.65rem] font-semibold uppercase leading-snug tracking-[0.14em] text-[#4E6478]">
+                {mobileVideoCard.statLabel}
+              </p>
+              <p className="shrink-0 font-display text-lg font-semibold text-[#2E4057]">{mobileVideoCard.statValue}</p>
+            </div>
+          </div>
+          <h3 className="mt-3 font-display text-xl font-semibold leading-tight text-[#2E4057]">{mobileVideoCard.title}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-[#4E6478]">{mobileVideoCard.summary}</p>
+          <div className="mt-4 overflow-hidden rounded-xl">
+            <iPadFrame className="w-full" orientation="landscape">
+              <video src={mobileVideoCard.videoSrc} autoPlay loop muted playsInline className="h-full w-full" />
+            </iPadFrame>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{mobileVideoCard.detail}</p>
+          <Link
+            to={mobileVideoCard.link}
+            className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#3DA882] hover:text-[#2E8E6D]"
+          >
+            Learn more
+            <ArrowUpRight size={14} />
+          </Link>
+        </article>
+      )}
     </div>
   );
 }
