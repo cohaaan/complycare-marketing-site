@@ -82,29 +82,25 @@ function MobileFeatureCarousel() {
             key={feature.id}
             data-carousel-card
             data-carousel-index={index}
-            className={`card-premium flex h-[420px] max-h-[420px] w-[min(280px,calc(100vw-6rem))] shrink-0 snap-start snap-always flex-col overflow-hidden rounded-2xl border p-4 ${toneClassMap[feature.tone]}`}
+            className={`card-premium flex h-[360px] max-h-[360px] w-[min(260px,calc(100vw-6rem))] shrink-0 snap-start snap-always flex-col overflow-hidden rounded-2xl border p-3 ${toneClassMap[feature.tone]}`}
           >
-            <div className={`rounded-xl border px-3 py-2.5 ${innerBubbleClassMap[feature.tone]}`}>
-              <div className="flex items-center justify-between gap-2">
-                <p className="min-w-0 flex-1 text-[0.65rem] font-semibold uppercase leading-snug tracking-[0.14em] text-[#4E6478]">
-                  {feature.statLabel}
-                </p>
-                <p className="shrink-0 font-display text-lg font-semibold text-[#2E4057]">{feature.statValue}</p>
-              </div>
+            <div className={`rounded-lg border px-2.5 py-2 ${innerBubbleClassMap[feature.tone]}`}>
+              <p className="text-[0.6rem] font-semibold uppercase leading-snug tracking-[0.12em] text-[#4E6478]">
+                {feature.statLabel}
+              </p>
+              <p className="font-display text-sm font-semibold text-[#2E4057]">{feature.statValue}</p>
             </div>
-            <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#8FA3B5]">Capability</p>
-            <h3 className="mt-1 font-display text-lg font-semibold leading-tight text-[#2E4057]">{feature.title}</h3>
-            <p className="mt-1.5 text-xs leading-relaxed text-[#4E6478] line-clamp-3">{feature.summary}</p>
-            <div className="mt-3 h-[120px] w-full shrink-0 overflow-hidden rounded-lg">
+            <h3 className="mt-2 font-display text-base font-semibold leading-tight text-[#2E4057]">{feature.title}</h3>
+            <p className="mt-1 text-[0.7rem] leading-relaxed text-[#4E6478] line-clamp-2">{feature.summary}</p>
+            <div className="mt-2 h-[110px] w-full shrink-0 overflow-hidden rounded-lg">
               <ProductCanvas variant={feature.visual} className="h-full w-full overflow-hidden rounded-lg" />
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-[#4E6478] line-clamp-2">{feature.detail}</p>
             <Link
               to={feature.link}
-              className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#3DA882] hover:text-[#2E8E6D]"
+              className="mt-auto inline-flex items-center gap-2 pt-2 text-xs font-semibold text-[#3DA882] hover:text-[#2E8E6D]"
             >
               Learn more
-              <ArrowUpRight size={14} />
+              <ArrowUpRight size={12} />
             </Link>
           </article>
         ))}
@@ -127,17 +123,15 @@ function MobileFeatureCarousel() {
 
       {/* Featured video card — full width below carousel for visibility */}
       {mobileVideoCard && (
-        <article className={`mt-6 rounded-2xl border p-5 ${toneClassMap[mobileVideoCard.tone]}`}>
-          <div className={`rounded-xl border px-3 py-2.5 ${innerBubbleClassMap[mobileVideoCard.tone]}`}>
-            <div className="flex items-center justify-between gap-2">
-              <p className="min-w-0 flex-1 text-[0.65rem] font-semibold uppercase leading-snug tracking-[0.14em] text-[#4E6478]">
-                {mobileVideoCard.statLabel}
-              </p>
-              <p className="shrink-0 font-display text-lg font-semibold text-[#2E4057]">{mobileVideoCard.statValue}</p>
-            </div>
+        <article className={`mt-6 rounded-2xl border p-4 ${toneClassMap[mobileVideoCard.tone]}`}>
+          <div className={`rounded-lg border px-3 py-2 ${innerBubbleClassMap[mobileVideoCard.tone]}`}>
+            <p className="text-[0.6rem] font-semibold uppercase leading-snug tracking-[0.12em] text-[#4E6478]">
+              {mobileVideoCard.statLabel}
+            </p>
+            <p className="font-display text-sm font-semibold text-[#2E4057]">{mobileVideoCard.statValue}</p>
           </div>
-          <h3 className="mt-3 font-display text-xl font-semibold leading-tight text-[#2E4057]">{mobileVideoCard.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-[#4E6478]">{mobileVideoCard.summary}</p>
+          <h3 className="mt-3 font-display text-lg font-semibold leading-tight text-[#2E4057]">{mobileVideoCard.title}</h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-[#4E6478]">{mobileVideoCard.summary}</p>
           <div className="mt-4 overflow-hidden rounded-xl">
             <iPadFrame className="w-full" orientation="landscape">
               <video
