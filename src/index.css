@@ -24,6 +24,16 @@
     --cc-slate-light: #8fa3b5;
     --cc-border: #e4edf5;
     --cc-bg: #f2f6fa;
+    /* Matches marketing SiteShell gradient for section overlays */
+    --cc-shell-gradient: linear-gradient(
+      to bottom,
+      #add8e6 0%,
+      #c5e8f5 18%,
+      #e0f2fe 40%,
+      #f5fbff 60%,
+      #ffffff 75%,
+      #ffffff 100%
+    );
   }
 
   * {
@@ -68,6 +78,18 @@
 
   .section-pad {
     @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Fixed attachment shows scroll-linked color on desktop; scroll avoids iOS jank */
+  .cc-site-shell-bg {
+    background: var(--cc-shell-gradient);
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 768px) {
+    .cc-site-shell-bg {
+      background-attachment: scroll;
+    }
   }
 
   .card-premium {

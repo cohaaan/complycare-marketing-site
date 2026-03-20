@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { cx } from '../../utils/cx';
 import { ProductCanvas, type ProductVisual } from '../ProductCanvas';
 import { SectionIntro } from '../SectionIntro';
+import { FeatureRailSection } from './FeatureRailSection';
 
 type StoryPanel = {
   id: string;
@@ -57,7 +58,7 @@ const storyPanels: StoryPanel[] = [
 
 export function StorybookPanelsSection() {
   return (
-    <section className="section-pad border-b border-[#E4EDF5]">
+    <section className="section-pad -mt-px bg-[linear-gradient(180deg,rgba(232,242,252,0.28)_0%,rgba(245,251,255,0.12)_min(28vh,14rem),transparent_min(52vh,28rem))]">
       <div className="cc-container">
         <div className="mb-8 flex flex-col items-center justify-center px-6 py-4">
           <div className="w-full max-w-[260px] overflow-hidden sm:max-w-[320px] lg:max-w-[380px]" style={{ aspectRatio: '612/570' }}>
@@ -78,6 +79,8 @@ export function StorybookPanelsSection() {
           title="High-contrast workflows built for speed, clarity, and trust"
           description="Inspired by premium consumer storytelling patterns but tailored for enterprise healthcare decision-makers."
         />
+
+        <FeatureRailSection />
 
         <div className="mt-10 grid gap-6 lg:gap-8">
           {storyPanels.map((panel, index) => (

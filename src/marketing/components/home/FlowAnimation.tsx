@@ -1,72 +1,113 @@
+/**
+ * Reference-style flow: white stroked paths + soft glow, labels on textPath
+ * (SMIL startOffset), uppercase tracking — no nodes / “buttons”.
+ */
+
+const FLOW_PATHS = [
+  {
+    id: 'cc-flow-p1',
+    d: 'M0,150 C300,50 600,250 900,150 S1400,50 1800,200',
+    text: 'Admission agreement signed',
+    opacity: 0.8,
+    dur: '35s',
+  },
+  {
+    id: 'cc-flow-p2',
+    d: 'M0,300 C400,200 700,400 1000,300 S1500,200 1800,350',
+    text: 'Concierge taken',
+    opacity: 0.6,
+    dur: '42s',
+  },
+  {
+    id: 'cc-flow-p3',
+    d: 'M0,450 C500,350 800,550 1100,450 S1600,350 1800,500',
+    text: 'Grievance form made',
+    opacity: 0.7,
+    dur: '48s',
+  },
+  {
+    id: 'cc-flow-p4',
+    d: 'M0,600 C300,750 700,500 1000,650 S1400,800 1800,600',
+    text: 'Clinical review complete',
+    opacity: 0.5,
+    dur: '52s',
+  },
+  {
+    id: 'cc-flow-p5',
+    d: 'M0,750 C500,650 900,850 1200,750 S1600,650 1800,850',
+    text: 'Referral processed',
+    opacity: 0.65,
+    dur: '40s',
+  },
+  {
+    id: 'cc-flow-p6',
+    d: 'M0,100 C600,300 1100,0 1600,200',
+    text: 'Insurance approved',
+    opacity: 0.45,
+    dur: '45s',
+  },
+  {
+    id: 'cc-flow-p7',
+    d: 'M0,800 C400,950 1000,700 1500,900',
+    text: 'Patient assessment',
+    opacity: 0.4,
+    dur: '58s',
+  },
+] as const;
+
 export function FlowAnimation() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0">
+    <div className="pointer-events-none absolute inset-0 z-0 min-w-full">
       <svg
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full min-h-full w-full min-w-full"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 -120 2040 1200"
-        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1900 900"
+        preserveAspectRatio="xMidYMid slice"
         overflow="visible"
       >
-        <style>
-          {`
-            .flow-path { fill: none; stroke: rgba(46, 64, 87, 0.35); stroke-width: 2; stroke-linecap: round; }
-            .flow-path-dashed { fill: none; stroke: rgba(46, 64, 87, 0.25); stroke-width: 2; stroke-dasharray: 10, 10; stroke-linecap: round; }
-            .flow-dot { fill: rgba(46, 64, 87, 0.7); filter: drop-shadow(0 0 4px rgba(46, 64, 87, 0.4)); }
-            .flow-text { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; fill: #2E4057; dominant-baseline: middle; }
-            .flow-text-reverse { text-anchor: end; }
+        <defs>
+          <filter id="cc-flow-line-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+          {FLOW_PATHS.map((p) => (
+            <path key={p.id} id={p.id} d={p.d} fill="none" />
+          ))}
+        </defs>
 
-            @keyframes flowDot { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
-            .animated-dot-1 { offset-path: path('M 0 150 Q 300 50, 600 150 T 1200 150 T 1800 150'); animation: flowDot 12s linear infinite; offset-rotate: 0deg; }
-            .animated-dot-2 { offset-path: path('M 0 400 Q 400 300, 800 400 T 1600 400'); animation: flowDot 15s linear infinite 1.5s; offset-rotate: 0deg; }
-            .animated-dot-3 { offset-path: path('M 200 50 Q 500 200, 800 50 T 1400 50 T 2000 50'); animation: flowDot 18s linear infinite 3s; offset-rotate: 0deg; }
-            .animated-dot-4 { offset-path: path('M 1920 300 Q 1600 400, 1300 300 T 700 300 T 0 300'); animation: flowDot 16.5s linear infinite 4.5s; offset-rotate: 0deg; }
-            .animated-dot-5 { offset-path: path('M 100 600 Q 600 700, 1100 600 T 1900 600'); animation: flowDot 21s linear infinite 6s; offset-rotate: 0deg; }
-
-            .grid-dot { fill: rgba(46, 64, 87, 0.2); animation: gridPulse 3s ease-in-out infinite; }
-            @keyframes gridPulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.5; } }
-          `}
-        </style>
-        {/* Flow paths */}
-        <path className="flow-path" d="M 0 150 Q 300 50, 600 150 T 1200 150 T 1800 150" />
-        <path className="flow-path" d="M 0 400 Q 400 300, 800 400 T 1600 400" />
-        <path className="flow-path" d="M 200 50 Q 500 200, 800 50 T 1400 50 T 2000 50" />
-        <path className="flow-path-dashed" d="M 1920 300 Q 1600 400, 1300 300 T 700 300 T 0 300" />
-        <path className="flow-path" d="M 100 600 Q 600 700, 1100 600 T 1900 600" />
-        <path className="flow-path-dashed" d="M 0 750 Q 400 650, 800 750 T 1600 750" />
-
-        {/* Animated dots with labels - each g group moves along its path */}
-        <g className="animated-dot-1">
-          <circle className="flow-dot" r="6" cx="0" cy="0" />
-          <text className="flow-text" dx="10">Bed Available</text>
-        </g>
-        <g className="animated-dot-2">
-          <circle className="flow-dot" r="5" cx="0" cy="0" />
-          <text className="flow-text" dx="10">Equipment Returned</text>
-        </g>
-        <g className="animated-dot-3">
-          <circle className="flow-dot" r="5" cx="0" cy="0" />
-          <text className="flow-text" dx="10">New Admission</text>
-        </g>
-        <g className="animated-dot-4">
-          <circle className="flow-dot" r="5" cx="0" cy="0" />
-          <text className="flow-text flow-text-reverse" dx="-10">Maintenance Alert</text>
-        </g>
-        <g className="animated-dot-5">
-          <circle className="flow-dot" r="6" cx="0" cy="0" />
-          <text className="flow-text" dx="10">Status Update</text>
-        </g>
-
-        {/* Grid dots */}
-        {Array.from({ length: 24 }, (_, i) => (
-          <circle
-            key={i}
-            className="grid-dot"
-            r="3"
-            cx={80 + (i % 8) * 240}
-            cy={120 + Math.floor(i / 8) * 320}
-            style={{ animationDelay: `${i * 0.2}s` }}
-          />
+        {FLOW_PATHS.map((p, i) => (
+          <g key={p.id}>
+            <use
+              href={`#${p.id}`}
+              stroke="#ffffff"
+              strokeWidth={3}
+              strokeOpacity={p.opacity}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              filter="url(#cc-flow-line-glow)"
+            />
+            <text
+              fill="#334e68"
+              fillOpacity={1}
+              fontSize={13}
+              fontWeight={800}
+              fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
+              style={{ letterSpacing: '0.08em', textTransform: 'uppercase' }}
+            >
+              <textPath href={`#${p.id}`} startOffset="0%">
+                {p.text}
+                <animate
+                  attributeName="startOffset"
+                  from="0%"
+                  to="100%"
+                  dur={p.dur}
+                  begin={`${i * 0.7}s`}
+                  repeatCount="indefinite"
+                />
+              </textPath>
+            </text>
+          </g>
         ))}
       </svg>
     </div>

@@ -110,7 +110,7 @@ export function FeatureRailSection() {
   }, [syncPosition]);
 
   return (
-    <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
+    <section className="section-pad -mt-px bg-[linear-gradient(180deg,transparent_0rem,#f2f6fa_12rem,#f2f6fa_100%)]">
       <div className="cc-container">
         <SectionIntro
           eyebrow="Platform modules"

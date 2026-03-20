@@ -6,7 +6,7 @@ const metricSurfaces = ['surface-mint', 'surface-sky', 'surface-peach'];
 
 export function MetricsSection() {
   return (
-    <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
+    <section className="section-pad -mt-px bg-[#F2F6FA]">
       <div className="cc-container">
         <SectionIntro
           eyebrow="Outcomes"

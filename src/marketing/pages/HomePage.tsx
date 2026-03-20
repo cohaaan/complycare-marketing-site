@@ -1,6 +1,5 @@
 import { PageMeta } from '../components/PageMeta';
 import { SiteShell } from '../components/SiteShell';
-import { FeatureRailSection } from '../components/home/FeatureRailSection';
 import { FinalCtaSection } from '../components/home/FinalCtaSection';
 import { FlowAnimationSection } from '../components/home/FlowAnimationSection';
 import { HeroSection } from '../components/home/HeroSection';
@@ -19,7 +18,6 @@ export function HomePage() {
         <HeroSection />
         <FlowAnimationSection />
         <StorybookPanelsSection />
-        <FeatureRailSection />
         <MetricsSection />
         <FinalCtaSection />
       </SiteShell>

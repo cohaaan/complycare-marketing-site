@@ -43,7 +43,7 @@ export function FinalCtaSection() {
   };
 
   return (
-    <section id="request-demo" className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
+    <section id="request-demo" className="section-pad -mt-px bg-[#F2F6FA]">
       <div className="cc-container">
         <div className="grid gap-8 rounded-3xl border border-[#E4EDF5] bg-white p-7 shadow-[0_14px_34px_rgba(46,64,87,0.1)] sm:p-10 lg:grid-cols-[1.2fr_1fr]">
           <div>

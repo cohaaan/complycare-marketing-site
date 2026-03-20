@@ -41,15 +41,9 @@ function FinalGlobalCta() {
 
 export function SiteShell({ children, includeFinalCta = false }: SiteShellProps) {
   return (
-    <div
-      className="min-h-screen text-[#2E4057]"
-      style={{
-        background: 'linear-gradient(to bottom, #ADD8E6 0%, #C5E8F5 18%, #E0F2FE 40%, #F5FBFF 60%, #FFFFFF 75%, #FFFFFF 100%)',
-        backgroundAttachment: 'fixed',
-      }}
-    >
+    <div className="cc-site-shell-bg min-h-screen text-[#2E4057]">
       <MarketingNavbar />
-      <main>{children}</main>
+      <main className="flex flex-col">{children}</main>
       {includeFinalCta ? <FinalGlobalCta /> : null}
       <MarketingFooter />
     </div>

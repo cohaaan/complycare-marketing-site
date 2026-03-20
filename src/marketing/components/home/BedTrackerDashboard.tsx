@@ -32,44 +32,48 @@ const navItems = [
 export function BedTrackerDashboard() {
   return (
     <div
-      className="relative z-10 flex w-full max-w-2xl overflow-hidden rounded-xl bg-white shadow-[0_4px_24px_rgba(46,64,87,0.12)]"
+      className="relative z-10 flex w-full max-w-2xl overflow-hidden rounded-2xl border border-[#e4edf5] bg-white shadow-[0_22px_56px_rgba(46,64,87,0.14),0_2px_8px_rgba(46,64,87,0.06)] ring-1 ring-[#2e4057]/[0.04]"
       style={{ fontFamily: 'Inter, sans-serif' }}
     >
-      {/* Sidebar */}
-      <aside className="flex w-32 shrink-0 flex-col border-r border-[#e5e7eb] bg-white py-2.5">
+      {/* Below sm: icon-only rail; sm+ matches prior label + width behavior */}
+      <aside className="flex w-12 shrink-0 flex-col items-stretch border-r border-[#e5e7eb] bg-gradient-to-b from-white to-[#f8fafc] py-1 sm:w-40 sm:py-2">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
             <button
               key={item.label}
               type="button"
-              className={`relative flex items-center gap-2 px-2.5 py-2 text-left text-xs transition-colors ${
-                item.active ? 'bg-[#eff6ff] text-[#3b82f6]' : 'text-[#4b5563] hover:bg-[#f9fafb]'
+              title={item.label}
+              aria-label={item.label}
+              className={`relative flex w-full shrink-0 flex-col items-center justify-center gap-0 px-0 py-1.5 text-center text-[10px] font-medium leading-snug transition-colors sm:flex-row sm:items-center sm:justify-start sm:gap-2 sm:px-2 sm:py-2.5 sm:text-left sm:text-[11px] ${
+                item.active ? 'bg-[#eff6ff] text-[#2563eb]' : 'text-[#4b5563] hover:bg-[#f9fafb]'
               }`}
             >
-              <Icon className="size-3.5 shrink-0" strokeWidth={2} />
-              <span className="truncate">{item.label}</span>
+              <Icon className="size-[1.125rem] shrink-0 sm:size-3.5" strokeWidth={2} />
+              <span className="hidden min-w-0 flex-1 hyphens-auto sm:block sm:text-left">{item.label}</span>
               {item.badge != null && (
-                <span className="absolute right-2 top-1/2 flex size-4 -translate-y-1/2 items-center justify-center rounded-full bg-red-500 text-[9px] font-semibold text-white">
+                <span className="absolute right-0 top-1 flex min-w-[1rem] items-center justify-center rounded-full bg-red-500 px-0.5 text-[7px] font-semibold leading-none text-white sm:right-2 sm:top-1/2 sm:size-4 sm:-translate-y-1/2 sm:text-[8px]">
                   {item.badge}
                 </span>
               )}
             </button>
           );
         })}
-        <div className="mt-auto border-t border-[#e5e7eb] pt-2">
+        <div className="mt-0 shrink-0 border-t border-[#e5e7eb] pt-1 sm:mt-auto sm:pt-2">
           <button
             type="button"
-            className="flex w-full items-center gap-2 px-2.5 py-2 text-left text-xs text-[#4b5563] hover:bg-[#f9fafb]"
+            title="Logout"
+            aria-label="Logout"
+            className="flex w-full shrink-0 flex-col items-center justify-center gap-0 px-0 py-1.5 text-center text-[10px] text-[#4b5563] hover:bg-[#f9fafb] sm:flex-row sm:items-center sm:justify-start sm:gap-2 sm:px-2 sm:py-2 sm:text-left sm:text-xs"
           >
-            <LogOut className="size-3.5 shrink-0" strokeWidth={2} />
-            <span>Logout</span>
+            <LogOut className="size-[1.125rem] shrink-0 sm:size-3.5" strokeWidth={2} />
+            <span className="hidden min-w-0 flex-1 text-left sm:inline">Logout</span>
           </button>
         </div>
       </aside>
 
       {/* Main content - squeezed */}
-      <main className="min-w-0 flex-1 overflow-auto p-2">
+      <main className="min-w-0 flex-1 overflow-auto px-1.5 py-2 sm:p-2">
         <h1 className="mb-1.5 text-sm font-bold text-[#111827]">Hello, John</h1>
 
         {/* Row 1: Large cards - Total Beds, Occupied Beds */}
