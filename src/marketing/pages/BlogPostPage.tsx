@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Tag, User } from 'lucide-react';
+import { CTAButton } from '../components/CTAButton';
 import { SiteShell } from '../components/SiteShell';
 import { blogPosts } from '../data/blogPosts';
 import {
@@ -48,8 +49,8 @@ export function BlogPostPage() {
 
   return (
     <SiteShell>
-      <div className="border-b border-[#E4EDF5] bg-white">
-        <div className="cc-container py-4">
+      <div className="mt-8 border-b border-[#E4EDF5] bg-white">
+        <div className="cc-container pt-6 pb-4">
           <nav className="flex items-center text-sm text-[#8FA3B5]">
             <Link to="/" className="hover:text-[#3DA882]">
               Home
@@ -64,46 +65,52 @@ export function BlogPostPage() {
         </div>
       </div>
 
-      <div className="border-b border-[#E4EDF5] bg-gradient-to-br from-[#3DA882] to-[#2a8f6c] py-12 text-white">
-        <div className="cc-container">
+      <section className="section-pad border-b border-[#E4EDF5]">
+        <div className="cc-container max-w-4xl">
           <button
             type="button"
             onClick={() => navigate('/blog')}
-            className="mb-6 inline-flex items-center text-sm text-white/80 transition hover:text-white"
+            className="mb-6 inline-flex items-center text-sm font-semibold text-[#3DA882] transition hover:text-[#2E4057]"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to all articles
           </button>
 
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium">{post.category}</span>
+            <span className="rounded-full border border-[#C2E8D8] bg-[#EAF7F2] px-3 py-1 text-xs font-semibold text-[#3DA882]">
+              {post.category}
+            </span>
             {post.originalData ? (
-              <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium">Original research</span>
+              <span className="rounded-full border border-[#C2E8D8] bg-[#EAF7F2] px-3 py-1 text-xs font-semibold text-[#2E4057]">
+                Original research
+              </span>
             ) : null}
             {post.caseStudy ? (
-              <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium">Case study</span>
+              <span className="rounded-full border border-[#C2E8D8] bg-[#EAF7F2] px-3 py-1 text-xs font-semibold text-[#2E4057]">
+                Case study
+              </span>
             ) : null}
           </div>
 
-          <h1 className="font-display text-3xl font-semibold md:text-4xl">{post.title}</h1>
-          <p className="mt-4 max-w-3xl text-lg text-white/90">{post.subtitle}</p>
+          <h1 className="font-display text-3xl font-semibold leading-tight text-[#2E4057] md:text-4xl">{post.title}</h1>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#4E6478]">{post.subtitle}</p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/85">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#8FA3B5]">
             <span className="inline-flex items-center gap-2">
-              <User className="h-4 w-4" />
+              <User className="h-4 w-4 text-[#8FA3B5]" />
               {post.author}
             </span>
             <span className="inline-flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
+              <Calendar className="h-4 w-4 text-[#8FA3B5]" />
               {post.date}
             </span>
             <span className="inline-flex items-center gap-2">
-              <Clock className="h-4 w-4" />
+              <Clock className="h-4 w-4 text-[#8FA3B5]" />
               {post.readTime} read
             </span>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
         <div className="cc-container max-w-4xl">
@@ -122,24 +129,17 @@ export function BlogPostPage() {
             </div>
           </article>
 
-          <div className="mt-12 rounded-3xl border border-[#C2E8D8] bg-gradient-to-br from-[#3DA882] to-[#2a8f6c] p-8 text-center text-white shadow-[0_14px_40px_rgba(46,64,87,0.1)]">
-            <h2 className="font-display text-2xl font-semibold">See ComplyCare on your operations</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-white/90">
+          <div className="mt-12 rounded-3xl border border-[#E4EDF5] bg-white p-8 text-center shadow-[0_14px_40px_rgba(46,64,87,0.08)] sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#4E6478]">Next step</p>
+            <h2 className="mt-3 font-display text-2xl font-semibold text-[#2E4057]">See ComplyCare on your operations</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[#4E6478]">
               Unified bed visibility, admissions workflow, and audit-ready documentation for post-acute teams.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#2E4057] shadow-sm transition hover:bg-[#F2F6FA]"
-              >
-                Book a demo
-              </Link>
-              <Link
-                to="/platform"
-                className="inline-flex items-center justify-center rounded-xl border-2 border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
+              <CTAButton to="/contact">Book a demo</CTAButton>
+              <CTAButton to="/platform" variant="secondary">
                 Platform overview
-              </Link>
+              </CTAButton>
             </div>
           </div>
         </div>

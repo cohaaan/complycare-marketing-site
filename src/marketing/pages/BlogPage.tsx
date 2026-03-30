@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Clock, Search, Calendar, User } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { Reveal } from '../components/Reveal';
 import { SiteShell } from '../components/SiteShell';
@@ -80,13 +80,18 @@ export function BlogPage() {
         path="/blog"
       />
       <SiteShell includeFinalCta>
-        <section className="border-b border-[#E4EDF5] bg-gradient-to-br from-[#3DA882] to-[#2a8f6c] py-16 text-white">
-          <div className="cc-container text-center">
-            <h1 className="font-display text-4xl font-semibold md:text-5xl">Insights &amp; research</h1>
-            <p className="mx-auto mt-4 max-w-3xl text-lg text-white/90">
-              Original research, case studies, and practical guides for SNF operators—bed visibility, admissions
-              workflow, survey readiness, and more.
-            </p>
+        <section className="section-pad border-b border-[#E4EDF5]">
+          <div className="cc-container">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#4E6478]">Insights</p>
+              <h1 className="mt-3 font-display text-3xl font-semibold leading-tight text-[#2E4057] sm:text-4xl md:text-5xl">
+                Research &amp; guides
+              </h1>
+              <p className="mt-4 text-base leading-relaxed text-[#4E6478] sm:text-lg">
+                Original research, case studies, and practical guides for SNF operators—bed visibility, admissions
+                workflow, survey readiness, and more.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -129,7 +134,7 @@ export function BlogPage() {
               <Reveal>
                 <div className="mb-12 rounded-3xl border border-[#C2E8D8] bg-white p-8 shadow-[0_14px_40px_rgba(46,64,87,0.08)]">
                   <div className="mb-4 flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-[#3DA882] px-3 py-1 text-xs font-semibold text-white">
+                    <span className="rounded-full border border-[#C2E8D8] bg-[#EAF7F2] px-3 py-1 text-xs font-semibold text-[#3DA882]">
                       Featured
                     </span>
                     {featuredPost.originalData ? (
@@ -197,7 +202,7 @@ export function BlogPage() {
                           </span>
                         ) : null}
                         {post.caseStudy ? (
-                          <span className="rounded-full bg-[#2a8f6c] px-2.5 py-0.5 text-xs font-medium text-white">
+                          <span className="rounded-full border border-[#C2E8D8] bg-[#EAF7F2] px-2.5 py-0.5 text-xs font-medium text-[#2E4057]">
                             Case study
                           </span>
                         ) : null}
@@ -239,12 +244,6 @@ export function BlogPage() {
             {filteredPosts.length === 0 ? (
               <p className="py-12 text-center text-[#8FA3B5]">No articles found matching your criteria.</p>
             ) : null}
-
-            <div className="mt-12 text-center">
-              <Link to="/resources" className="text-sm font-semibold text-[#3DA882] hover:text-[#2E4057]">
-                Resource center →
-              </Link>
-            </div>
           </div>
         </section>
       </SiteShell>
