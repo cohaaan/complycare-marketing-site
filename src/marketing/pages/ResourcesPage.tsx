@@ -5,7 +5,7 @@ import { PageMeta } from '../components/PageMeta';
 import { Reveal } from '../components/Reveal';
 import { SectionIntro } from '../components/SectionIntro';
 import { SiteShell } from '../components/SiteShell';
-import { resources } from '../data/content';
+import { blogPosts } from '../data/blogPosts';
 
 export function ResourcesPage() {
   return (
@@ -21,26 +21,31 @@ export function ResourcesPage() {
             <SectionIntro
               eyebrow="Resource center"
               title="Guides, case studies, and playbooks for post-acute operators"
-              description="Practical content for admissions, compliance, and executive teams driving operational performance in regulated care environments."
+              description="Practical content for admissions, compliance, and executive teams driving operational performance in regulated care environments. Read the full articles on our blog."
             />
+            <p className="mt-6 text-center">
+              <Link to="/blog" className="text-sm font-semibold text-[#3DA882] hover:text-[#2E4057]">
+                View all articles →
+              </Link>
+            </p>
           </div>
         </section>
 
         <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
           <div className="cc-container grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {resources.map((resource) => (
-              <Reveal key={resource.title}>
+            {blogPosts.map((post) => (
+              <Reveal key={post.id}>
                 <article className="h-full rounded-2xl border border-[#E4EDF5] bg-white p-6">
                   <div className="flex items-center justify-between gap-3">
                     <span className="rounded-full border border-[#C2E8D8] bg-[#EAF7F2] px-3 py-1 text-xs font-semibold text-[#3DA882]">
-                      {resource.type}
+                      {post.category}
                     </span>
-                    <span className="text-xs text-[#8FA3B5]">{resource.readTime}</span>
+                    <span className="text-xs text-[#8FA3B5]">{post.readTime} read</span>
                   </div>
-                  <h2 className="mt-4 font-display text-2xl font-semibold text-[#2E4057]">{resource.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{resource.summary}</p>
+                  <h2 className="mt-4 font-display text-2xl font-semibold text-[#2E4057]">{post.title}</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{post.excerpt}</p>
                   <Link
-                    to={resource.href}
+                    to={`/blog/${post.id}`}
                     className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#3DA882] hover:text-[#4E6478]"
                   >
                     Read now

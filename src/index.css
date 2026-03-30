@@ -135,6 +135,35 @@
   .shot-frame {
     @apply overflow-hidden rounded-2xl border border-[#E4EDF5] bg-white shadow-[0_14px_34px_rgba(46,64,87,0.10)];
   }
+
+  /* Blog post HTML from dangerouslySetInnerHTML (bedtracker-website import) */
+  .cc-blog-content {
+    @apply max-w-none text-base leading-relaxed text-[#4E6478];
+  }
+
+  .cc-blog-content :where(h2) {
+    @apply mt-10 mb-4 font-display text-2xl font-semibold text-[#2E4057];
+  }
+
+  .cc-blog-content :where(p) {
+    @apply mb-4;
+  }
+
+  .cc-blog-content :where(img) {
+    @apply my-8 w-full rounded-xl shadow-md;
+  }
+
+  .cc-blog-content :where(strong) {
+    @apply font-semibold text-[#2E4057];
+  }
+
+  .cc-blog-content :where(em) {
+    @apply italic text-[#4E6478];
+  }
+
+  .cc-blog-content :where(a) {
+    @apply text-[#3DA882] underline-offset-2 hover:underline;
+  }
 }
 
 @layer utilities {

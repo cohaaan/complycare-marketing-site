@@ -7,6 +7,8 @@ import { NotFoundPage } from './marketing/pages/NotFoundPage';
 import { PlatformPage } from './marketing/pages/PlatformPage';
 import { PaymentsPage } from './marketing/pages/PaymentsPage';
 import { PricingPage } from './marketing/pages/PricingPage';
+import { BlogPage } from './marketing/pages/BlogPage';
+import { BlogPostPage } from './marketing/pages/BlogPostPage';
 import { ResourcesPage } from './marketing/pages/ResourcesPage';
 import { SecurityPage } from './marketing/pages/SecurityPage';
 import { SignInPage } from './marketing/pages/SignInPage';
@@ -28,6 +30,8 @@ export default function App() {
         <Route path="/solutions" element={<Navigate to="/solutions/post-acute" replace />} />
         <Route path="/security" element={<SecurityPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<BlogPostPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/pricing" element={<PricingPage />} />

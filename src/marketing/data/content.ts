@@ -23,7 +23,7 @@ export const navItems: NavItem[] = [
   { label: 'Platform', href: '/platform' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Blog', href: '/resources' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 export const trustLogos = [
@@ -228,58 +228,6 @@ export const companyValues = [
   },
 ];
 
-export const resources = [
-  {
-    type: 'Guide',
-    title: 'How to Run Role-Based Accountability in Post-Acute',
-    summary: 'Build a repeatable model for assigning, tracking, and improving workflow performance across facility teams.',
-    href: '#',
-    readTime: '10 min read',
-  },
-  {
-    type: 'Guide',
-    title: 'Discharge-to-Ready Bed Playbook',
-    summary: 'How high-performing facilities reduce bed turnaround time using accountable task routing.',
-    href: '#',
-    readTime: '11 min read',
-  },
-  {
-    type: 'Case Study',
-    title: 'How a 24-Facility Group Cut Turnover Delays',
-    summary: 'Inside the rollout that improved role ownership, completion speed, and operational throughput.',
-    href: '#',
-    readTime: '8 min read',
-  },
-  {
-    type: 'Blog',
-    title: 'Designing Real-Time Bed Intelligence for Operators',
-    summary: 'Best practices for making occupancy and readiness data trustworthy at enterprise scale.',
-    href: '#',
-    readTime: '6 min read',
-  },
-  {
-    type: 'Guide',
-    title: 'Recurring Compliance Calendar Checklist',
-    summary: 'A practical checklist for automating weekly, monthly, and quarterly compliance execution.',
-    href: '#',
-    readTime: '9 min read',
-  },
-  {
-    type: 'Case Study',
-    title: 'Reducing Documentation Errors Across Shifts',
-    summary: 'How workflow enforcement and e-signature controls improved consistency in a high-volume facility.',
-    href: '#',
-    readTime: '7 min read',
-  },
-  {
-    type: 'Blog',
-    title: 'From Manual Follow-Up to Automated Accountability',
-    summary: 'How post-acute operators replace status chasing with proactive performance visibility.',
-    href: '#',
-    readTime: '5 min read',
-  },
-];
-
 export const footerColumns = [
   {
     heading: 'Product',
@@ -302,7 +250,7 @@ export const footerColumns = [
     heading: 'Resources',
     links: [
       { label: 'Resource Center', href: '/resources' },
-      { label: 'Case Studies', href: '/resources' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Contact Sales', href: '/contact' },
     ],
   },
