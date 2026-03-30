@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { metrics, testimonial } from '../../data/content';
+import { CTAButton } from '../CTAButton';
 import { Reveal } from '../Reveal';
 import { SectionIntro } from '../SectionIntro';
 
@@ -33,6 +35,23 @@ export function MetricsSection() {
             </footer>
           </blockquote>
         </Reveal>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 border-t border-white/15 pt-10 sm:flex-row sm:flex-wrap sm:gap-6">
+          <p className="max-w-md text-center text-sm leading-relaxed text-[#D1DCE8] sm:text-left">
+            See how ComplyCare keeps admission workflows and documentation aligned before survey week.
+          </p>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
+            <CTAButton to="/#request-demo" variant="secondary" className="shrink-0 border-white/40 bg-white text-[#2E4057] hover:bg-white/90">
+              Book a demo
+            </CTAButton>
+            <Link
+              to="/resources"
+              className="shrink-0 text-sm font-semibold text-white/95 underline-offset-2 hover:text-white hover:underline"
+            >
+              Browse resources
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import { VIDEOS_PAGE_PATH } from '../data/externalLinks';
 import { ArrowLeft, Calendar, Clock, Tag, User } from 'lucide-react';
 import { CTAButton } from '../components/CTAButton';
 import { SiteShell } from '../components/SiteShell';
@@ -103,6 +104,9 @@ export function BlogPostPage() {
             <span className="inline-flex items-center gap-2">
               <Calendar className="h-4 w-4 text-[#8FA3B5]" />
               {post.date}
+              {post.dateModified && post.dateModified !== post.date ? (
+                <span className="text-[#4E6478]"> · Updated {new Date(post.dateModified + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+              ) : null}
             </span>
             <span className="inline-flex items-center gap-2">
               <Clock className="h-4 w-4 text-[#8FA3B5]" />
@@ -140,6 +144,12 @@ export function BlogPostPage() {
               <CTAButton to="/platform" variant="secondary">
                 Platform overview
               </CTAButton>
+              <Link
+                to={VIDEOS_PAGE_PATH}
+                className="inline-flex items-center justify-center rounded-lg border border-[#E4EDF5] bg-white px-4 py-2 text-sm font-semibold text-[#2E4057] transition hover:border-[#3DA882]/50 hover:bg-[#F2F6FA]"
+              >
+                See ComplyCare in action
+              </Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import { FormEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { VIDEOS_PAGE_PATH } from '../../data/externalLinks';
 
 const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
@@ -49,10 +51,30 @@ export function FinalCtaSection() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#4E6478]">Next step</p>
             <h2 className="mt-2 max-w-xl font-display text-2xl font-semibold leading-tight text-[#2E4057] sm:mt-3 sm:text-3xl lg:text-4xl">
-              Stay audit-ready. Keep operations moving.
+              Get ahead of admission-agreement citations before the survey team arrives.
             </h2>
             <p className="mt-3 max-w-xl text-sm text-[#4E6478] sm:mt-4 sm:text-base">
-              Tell us your facility footprint and top workflows. We will map the rollout plan and expected ROI in your demo.
+              Book a demo and we will map your footprint, intake volume, and where agreement gaps show up today—plus what a clean survey trail looks like on ComplyCare.
+            </p>
+            <p className="mt-4 max-w-xl text-sm text-[#4E6478]">
+              <Link to={VIDEOS_PAGE_PATH} className="font-semibold text-[#3DA882] hover:text-[#2E8E6D]">
+                Prefer to watch first?
+              </Link>
+              <span className="text-[#8FA3B5]"> · </span>
+              <Link to="/resources" className="font-semibold text-[#3DA882] hover:text-[#2E8E6D]">
+                Read guides
+              </Link>
+            </p>
+            <p className="mt-2 max-w-xl text-sm text-[#8FA3B5]">
+              Questions on scope and pricing? See{' '}
+              <Link to="/pricing" className="font-semibold text-[#2E4057] hover:text-[#3DA882]">
+                how we price
+              </Link>{' '}
+              or email{' '}
+              <a href="mailto:info@complycare.io" className="font-semibold text-[#3DA882] hover:text-[#2E8E6D]">
+                info@complycare.io
+              </a>
+              .
             </p>
 
           </div>

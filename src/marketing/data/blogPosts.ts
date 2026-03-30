@@ -6,6 +6,8 @@ export type BlogPost = {
   content: string;
   author: string;
   date: string;
+  /** Set when content was materially revised; drives schema and optional “Updated” label. */
+  dateModified?: string;
   readTime: string;
   category: string;
   tags: string[];
@@ -650,5 +652,103 @@ export const blogPosts: BlogPost[] = [
     category: "Resident Experience",
     tags: ["Concierge", "Satisfaction", "Family Communication"],
     image: "/blog-images/concierge-checkins.jpg"
+  },
+  {
+    id: 9,
+    title: "Discharge to Bed-Ready: One Timeline for Nursing, EVS, and Maintenance",
+    subtitle:
+      "Why the handoff breaks without a single owner chain—and how facilities cut idle-bed time when every role shares one clock",
+    excerpt:
+      "From discharge order to placement-ready bed: how SNFs align nursing, EVS, and maintenance on one accountable sequence instead of three parallel guessing games.",
+    content: `
+      <p>A discharge hits the EHR at 11:04. Nursing clears the patient by noon. EVS thinks the room is on tomorrow's list. Maintenance is still waiting on a work order for the bed rail. Admissions is on the phone promising a 3 PM admit—into a room nobody has marked ready.</p>
+
+      <p>That is not a documentation problem yet. It is an <em>operations</em> problem: three teams, three channels, no shared finish line.</p>
+
+      <img src="/blog-images/workflow-checklist.jpg" alt="Workflow checklist for discharge to bed-ready" class="w-full rounded-xl my-8 shadow-md" />
+
+      <h2>What "bed-ready" actually means</h2>
+
+      <p>Bed-ready is not "housekeeping mopped." It is: nursing released, equipment correct, infection-control steps done, specialty bed in place if needed, and admissions can honestly say "yes, take the patient" without a hallway scramble.</p>
+
+      <p>When those steps live on different whiteboards, the slowest step wins—and nobody's name is on the clock for the whole chain.</p>
+
+      <h2>Why EVS gets blamed first</h2>
+
+      <p>Environmental services often hears "room 312 isn't ready" when the real delay was maintenance or a missing oxygen setup. Without a single timeline, EVS becomes the default villain in standup.</p>
+
+      <p>Fixing that starts with sequencing: discharge triggers tasks in order, with owners and timestamps for <em>each</em> handoff—not a generic "clean stat" ticket floating in a queue.</p>
+
+      <h2>Maintenance in the middle, not at the end</h2>
+
+      <p>Beds and lifts fail at the worst moment because preventive work was "someone else's spreadsheet." When recurring rounds and corrective jobs roll into the same visibility layer as discharge-driven work, the 2 PM admit does not discover a broken crank at 1:55.</p>
+
+      <h2>What changes when everything shares one timeline</h2>
+
+      <p>Leaders stop asking "who dropped the ball?" and start asking "which step is late <em>right now</em>?" Nurses see when EVS actually checked in. EVS sees when maintenance cleared. Admissions sees when the room is truly green for a payer—not when someone verbally said "should be fine."</p>
+
+      <p>That is the operational side of the story. When you need to <em>prove</em> what happened for survey or QA, documentation still matters—see our guide on <a href="/blog/4" class="text-[#3DA882] hover:underline">what surveyors look for in documentation</a>—but you cannot document your way out of a handoff nobody tracked.</p>
+
+      <h2>Practical first steps this week</h2>
+
+      <p><strong>Define the chain.</strong> List every step from "discharge order signed" to "admissions may place." Assign one accountable owner per step—not "the floor."</p>
+
+      <p><strong>Timebox handoffs.</strong> If EVS cannot start within X minutes of nursing release, escalate visibly. Silence is what creates 90-minute gaps.</p>
+
+      <p><strong>One place for status.</strong> Whether it is software or a rigorously disciplined huddle board, everyone reads the same word for "ready."</p>
+
+      <p>For a deeper look at throughput math, revisit <a href="/blog/1" class="text-[#3DA882] hover:underline">what manual bed tracking costs</a>. When you are ready to run discharge-to-ready as a connected workflow, explore the <a href="/platform" class="text-[#3DA882] hover:underline">platform overview</a> or <a href="/contact" class="text-[#3DA882] hover:underline">talk to our team</a>.</p>
+    `,
+    author: "ComplyCare Team",
+    date: "2026-03-18",
+    readTime: "10 min",
+    category: "Operations",
+    tags: ["EVS", "Bed Turnover", "SNF Operations"],
+    image: "/blog-images/workflow-checklist.jpg"
+  },
+  {
+    id: 10,
+    title: "Recurring Cleaning and Maintenance: Assignments, Inboxes, and Closing the Loop",
+    subtitle:
+      "Operational execution—not survey binders—is what keeps generator tests, room turns, and preventive rounds from slipping",
+    excerpt:
+      "How post-acute teams move from sticky-note compliance to who owns each task, when it is due, and how completion is logged without another spreadsheet.",
+    content: `
+      <p>Surveys care about evidence. Day-to-day operations care about <em>whether the work happened</em> before anyone asks for a log. Those two ideas meet eventually—but they are not the same job.</p>
+
+      <p>If you only read our article on <a href="/blog/4" class="text-[#3DA882] hover:underline">survey-ready documentation</a>, you might think the fix is better binders. Often the fix is simpler: the weekly generator walk actually has an owner, a due time, and a closed status on Tuesday—not "someone usually does it."</p>
+
+      <img src="/blog-images/documentation-system.jpg" alt="Task and compliance calendar visibility" class="w-full rounded-xl my-8 shadow-md" />
+
+      <h2>This article is about execution, not proof</h2>
+
+      <p>We are talking about who gets the task on their phone, what "done" means, and what happens when the primary is out sick. Surveyors may later ask to see records—that is a different lens. Here we focus on <strong>assignment, sequencing, and completion</strong> for cleaning rounds, maintenance checks, and recurring regulatory touchpoints.</p>
+
+      <h2>Where recurring work usually dies</h2>
+
+      <p>Shared calendars look organized until three people think someone else picked up the monthly eyewash check. Facilities that win treat recurring work like admissions: explicit owner, backup, due date, and a timestamp when it closes.</p>
+
+      <p>Mobile inboxes matter because the work does not happen at the nurse's station. It happens on the unit, in the basement, behind the building. If only the spreadsheet knows what is due, the spreadsheet is always late.</p>
+
+      <h2>Cleaning vs. infection vs. maintenance</h2>
+
+      <p>Different departments own different slices, but residents experience one building. When terminal cleaning, routine floor rounds, and equipment checks share a single accountability layer, you reduce the gray area where "housekeeping was in there" but the lift was never inspected.</p>
+
+      <h2>Closing the loop vs. checking the box</h2>
+
+      <p>Closing the loop means the next person downstream can trust the handoff. A checked box without a time and actor is just theater. Teams that operate this way see fewer "we thought it was done" surprises during survey week—because the work was already real, not retrofitted into notes.</p>
+
+      <h2>Tie it to what leaders actually watch</h2>
+
+      <p>Executives do not need another PDF. They need to see which facilities are behind on recurring tasks, which roles are the bottleneck, and whether the pattern repeats month over month. That is operational intelligence; audit packets are the export, not the starting point.</p>
+
+      <p>Learn more about how tasks are structured in product on the <a href="/platform" class="text-[#3DA882] hover:underline">platform page</a> and security posture on <a href="/security" class="text-[#3DA882] hover:underline">security</a>. Ready to map recurring work to your footprint? <a href="/contact" class="text-[#3DA882] hover:underline">Contact us</a>.</p>
+    `,
+    author: "ComplyCare Team",
+    date: "2026-03-25",
+    readTime: "9 min",
+    category: "Operations",
+    tags: ["Maintenance", "Compliance Tasks", "Operations"],
+    image: "/blog-images/documentation-system.jpg"
   }
 ];

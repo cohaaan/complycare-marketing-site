@@ -10,6 +10,7 @@ import { PricingPage } from './marketing/pages/PricingPage';
 import { BlogPage } from './marketing/pages/BlogPage';
 import { BlogPostPage } from './marketing/pages/BlogPostPage';
 import { ResourcesPage } from './marketing/pages/ResourcesPage';
+import { VideosPage } from './marketing/pages/VideosPage';
 import { SecurityPage } from './marketing/pages/SecurityPage';
 import { SignInPage } from './marketing/pages/SignInPage';
 import { SolutionsPostAcutePage } from './marketing/pages/SolutionsPostAcutePage';
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogPostPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/videos" element={<VideosPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/payments/liberty" element={<PaymentsPage />} />

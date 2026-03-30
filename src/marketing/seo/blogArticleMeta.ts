@@ -38,6 +38,7 @@ export function removeBlogArticleMetaArtifacts() {
   document.getElementById('blog-post-schema')?.remove();
   document.getElementById('breadcrumb-schema')?.remove();
   removeMetaProperty('article:published_time');
+  removeMetaProperty('article:modified_time');
   removeMetaProperty('article:author');
   removeMetaProperty('article:section');
 }
@@ -72,6 +73,8 @@ export function applyBlogArticleMeta(post: BlogPost) {
   setTwitter('twitter:image', imageUrl);
 
   setMetaProperty('article:published_time', post.date);
+  const modified = post.dateModified ?? post.date;
+  setMetaProperty('article:modified_time', modified);
   setMetaProperty('article:author', post.author);
   setMetaProperty('article:section', post.category);
 
@@ -119,7 +122,7 @@ export function applyBlogArticleMeta(post: BlogPost) {
       },
     },
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: modified,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url,

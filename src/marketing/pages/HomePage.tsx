@@ -1,7 +1,9 @@
 import { PageMeta } from '../components/PageMeta';
 import { SiteShell } from '../components/SiteShell';
+import { FeatureRailSection } from '../components/home/FeatureRailSection';
 import { FinalCtaSection } from '../components/home/FinalCtaSection';
 import { FlowAnimationSection } from '../components/home/FlowAnimationSection';
+import { AdmissionPressureSection } from '../components/home/AdmissionPressureSection';
 import { HeroSection } from '../components/home/HeroSection';
 import { MetricsSection } from '../components/home/MetricsSection';
 import { StorybookPanelsSection } from '../components/home/StorybookPanelsSection';
@@ -17,6 +19,8 @@ export function HomePage() {
       <SiteShell>
         <HeroSection />
         <FlowAnimationSection />
+        <FeatureRailSection />
+        <AdmissionPressureSection />
         <StorybookPanelsSection />
         <MetricsSection />
         <FinalCtaSection />

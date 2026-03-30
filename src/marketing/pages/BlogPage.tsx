@@ -16,6 +16,7 @@ const categories = [
   'Analytics',
   'Admissions',
   'Resident Experience',
+  'Operations',
 ];
 
 export function BlogPage() {
@@ -64,6 +65,7 @@ export function BlogPage() {
         description: p.excerpt,
         url: `${SITE_ORIGIN}/blog/${p.id}`,
         datePublished: p.date,
+        dateModified: p.dateModified ?? p.date,
         author: { '@type': 'Person', name: p.author },
         image: `${SITE_ORIGIN}${p.image}`,
       })),

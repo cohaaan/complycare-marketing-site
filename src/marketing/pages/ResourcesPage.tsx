@@ -23,8 +23,14 @@ export function ResourcesPage() {
               title="Guides, case studies, and playbooks for post-acute operators"
               description="Practical content for admissions, compliance, and executive teams driving operational performance in regulated care environments. Read the full articles on our blog."
             />
-            <p className="mt-6 text-center">
-              <Link to="/blog" className="text-sm font-semibold text-[#3DA882] hover:text-[#2E4057]">
+            <p className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-sm">
+              <Link to="/videos" className="font-semibold text-[#3DA882] hover:text-[#2E4057]">
+                Watch product videos (embedded) →
+              </Link>
+              <span className="text-[#8FA3B5]" aria-hidden>
+                |
+              </span>
+              <Link to="/blog" className="font-semibold text-[#3DA882] hover:text-[#2E4057]">
                 View all articles →
               </Link>
             </p>

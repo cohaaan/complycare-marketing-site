@@ -21,6 +21,8 @@ export type FeatureCard = {
 
 export const navItems: NavItem[] = [
   { label: 'Platform', href: '/platform' },
+  { label: 'Videos', href: '/videos' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/blog' },
@@ -250,6 +252,7 @@ export const footerColumns = [
     heading: 'Resources',
     links: [
       { label: 'Resource Center', href: '/resources' },
+      { label: 'Product videos', href: '/videos' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact Sales', href: '/contact' },
     ],
