@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { VIDEOS_PAGE_PATH } from '../data/externalLinks';
 import { ArrowLeft, Calendar, Clock, Tag, User } from 'lucide-react';
@@ -15,6 +15,21 @@ export function BlogPostPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const post = blogPosts.find((p) => p.id === Number(id));
+  const [content, setContent] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!post) return;
+    
+    // Lazy load the heavy HTML content
+    import(`../data/posts/post-${post.id}.ts`)
+      .then((module) => {
+        setContent(module.content);
+      })
+      .catch((error) => {
+        console.error('Failed to load post content:', error);
+        setContent('<p>Error loading article content.</p>');
+      });
+  }, [post]);
 
   useEffect(() => {
     if (post) return;
@@ -119,7 +134,18 @@ export function BlogPostPage() {
       <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
         <div className="cc-container max-w-4xl">
           <article className="rounded-3xl border border-[#E4EDF5] bg-white p-8 shadow-[0_14px_40px_rgba(46,64,87,0.06)] md:p-12">
-            <div className="cc-blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+            {content ? (
+              <div className="cc-blog-content" dangerouslySetInnerHTML={{ __html: content }} />
+            ) : (
+              <div className="cc-blog-content animate-pulse">
+                <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-8"></div>
+                <div className="h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-full mb-4"></div>
+              </div>
+            )}
 
             <div className="mt-12 border-t border-[#E4EDF5] pt-8">
               <div className="flex flex-wrap items-center gap-2">

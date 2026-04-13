@@ -14,6 +14,7 @@ import { VideosPage } from './marketing/pages/VideosPage';
 import { SecurityPage } from './marketing/pages/SecurityPage';
 import { SignInPage } from './marketing/pages/SignInPage';
 import { SolutionsPostAcutePage } from './marketing/pages/SolutionsPostAcutePage';
+import { PointClickCareIntegrationPage } from './marketing/pages/PointClickCareIntegrationPage';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/platform" element={<PlatformPage />} />
         <Route path="/solutions/post-acute" element={<SolutionsPostAcutePage />} />
+        <Route path="/solutions/pointclickcare-esign-admissions" element={<PointClickCareIntegrationPage />} />
         <Route path="/solutions" element={<Navigate to="/solutions/post-acute" replace />} />
         <Route path="/security" element={<SecurityPage />} />
         <Route path="/about" element={<AboutPage />} />

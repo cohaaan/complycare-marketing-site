@@ -238,6 +238,7 @@ export const footerColumns = [
       { label: 'Security', href: '/security' },
       { label: 'Pricing', href: '/pricing' },
       { label: 'Payments', href: '/payments' },
+      { label: 'PCC eSign Integration', href: '/solutions/pointclickcare-esign-admissions' },
     ],
   },
   {
