@@ -157,5 +157,41 @@ export const blogPosts: BlogPost[] = [
     category: "Operations",
     tags: ["Maintenance", "Compliance Tasks", "Operations"],
     image: "/blog-images/documentation-system.jpg"
+  },
+  {
+    id: 11,
+    title: "SNF Admission Agreement Compliance: What CMS Surveyors Are Looking for in 2026",
+    subtitle: "Understanding recent F-tag updates and why paper admission packets are a major compliance risk.",
+    excerpt: "CMS surveyors are cracking down on missing signatures in SNF admissions agreements. Here is how automating your referral-to-signature workflow fixes the problem.",
+    author: "ComplyCare Team",
+    date: "2026-04-14",
+    readTime: "8 min",
+    category: "Compliance",
+    tags: ["Survey Readiness", "Admissions", "E-Signature"],
+    image: "/blog-images/admissions-workflow.jpg"
+  },
+  {
+    id: 12,
+    title: "How Nursing Homes Can Cut Discharge Turnaround Time by 42%",
+    subtitle: "Replacing the hallway whiteboard with automated role orchestration.",
+    excerpt: "Every minute a bed sits empty after discharge costs revenue. See how passing the baton automatically between EVS, Maintenance, and Nursing cuts idle times significantly.",
+    author: "ComplyCare Team",
+    date: "2026-04-15",
+    readTime: "7 min",
+    category: "Operations",
+    tags: ["Bed Turnover", "EVS", "ROI"],
+    image: "/blog-images/workflow-checklist.jpg"
+  },
+  {
+    id: 13,
+    title: "How ComplyCare + PointClickCare Creates a Complete Compliance Stack",
+    subtitle: "Why an EHR is not an accountability engine, and how integration solves the gap.",
+    excerpt: "PointClickCare holds your medical records, but it doesn't force your maintenance team to check the generator on time. Learn why integrating them creates the ultimate SNF tech stack.",
+    author: "ComplyCare Team",
+    date: "2026-04-16",
+    readTime: "6 min",
+    category: "Integrations",
+    tags: ["PointClickCare", "Tech Stack", "EHR"],
+    image: "/pcc-marketplace-partner.png"
   }
 ];
