@@ -16,6 +16,10 @@ import { SignInPage } from './marketing/pages/SignInPage';
 import { SolutionsPostAcutePage } from './marketing/pages/SolutionsPostAcutePage';
 import { PointClickCareIntegrationPage } from './marketing/pages/PointClickCareIntegrationPage';
 
+import { NursingHomeComplianceSoftwarePage } from './marketing/pages/NursingHomeComplianceSoftwarePage';
+import { SnfAdmissionAgreementCompliancePage } from './marketing/pages/SnfAdmissionAgreementCompliancePage';
+import { DischargeTurnoverSoftwarePage } from './marketing/pages/DischargeTurnoverSoftwarePage';
+
 export default function App() {
   return (
     <BrowserRouter
@@ -30,6 +34,9 @@ export default function App() {
         <Route path="/platform" element={<PlatformPage />} />
         <Route path="/solutions/post-acute" element={<SolutionsPostAcutePage />} />
         <Route path="/solutions/pointclickcare-esign-admissions" element={<PointClickCareIntegrationPage />} />
+        <Route path="/solutions/nursing-home-compliance-software" element={<NursingHomeComplianceSoftwarePage />} />
+        <Route path="/solutions/snf-admission-agreement-compliance" element={<SnfAdmissionAgreementCompliancePage />} />
+        <Route path="/solutions/discharge-turnover-software" element={<DischargeTurnoverSoftwarePage />} />
         <Route path="/solutions" element={<Navigate to="/solutions/post-acute" replace />} />
         <Route path="/security" element={<SecurityPage />} />
         <Route path="/about" element={<AboutPage />} />

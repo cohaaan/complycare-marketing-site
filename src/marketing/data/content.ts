@@ -187,18 +187,22 @@ export const securityModules = [
 export const platformCapabilities = {
   web: [
     'Role-based accountability timeline for discharge, bed-ready, admissions, and compliance workflows',
+    'Interactive floor plan + real-time bed management (holds, moves, filters)',
     'Discharge-triggered orchestration showing who owns each next step and how fast it is completed',
+    'Patient directory with local and PointClickCare sync where connected',
     'Admissions-to-signature tracking with full owner and timestamp visibility',
     'Payer mix and Medicare-days-left dashboard with proactive risk alerts',
+    'Multi-facility and role-based staff administration',
     'Grievance and compliance dashboards with defensible audit evidence exports',
-    'Conversational AI for identifying bottlenecks, missed SLAs, and underperforming areas',
     'PointClickCare integration for synchronized census and operational context',
   ],
   mobile: [
+    'Native mobile app on iOS and Android for real-time edge execution',
     'Task inbox by role with due-now notifications for discharge, cleaning, maintenance, and compliance work',
-    'One-tap task completion with timestamped accountability logs',
     'Live bed visibility, room lookup, and placement-ready filtering for admissions and marketers',
     'Secure e-signature and admissions workflow continuity on the floor',
+    'Weight monitoring workflows with instant accountability logs',
+    'Concierge and patient satisfaction scheduling',
     'Real-time operational alerts and follow-through tracking across teams',
   ],
 };
@@ -245,6 +249,9 @@ export const footerColumns = [
     heading: 'Solutions',
     links: [
       { label: 'Post-Acute Care', href: '/solutions/post-acute' },
+      { label: 'Nursing Home Compliance', href: '/solutions/nursing-home-compliance-software' },
+      { label: 'Admission Agreements', href: '/solutions/snf-admission-agreement-compliance' },
+      { label: 'Discharge & Bed Turnover', href: '/solutions/discharge-turnover-software' },
       { label: 'Accountability Ops', href: '/platform' },
       { label: 'Audit Readiness', href: '/security' },
     ],

@@ -108,9 +108,14 @@ export function PlatformPage() {
 
             <div className="mt-8 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
               <div className="rounded-3xl border border-[#D9E8F8] bg-[#EDF4FB] p-6 sm:p-7">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C7DAF0] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#4E6478]">
-                  <MessageSquareText size={14} />
-                  Facility AI Assistant
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#C7DAF0] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#4E6478]">
+                    <MessageSquareText size={14} />
+                    Facility AI Assistant
+                  </div>
+                  <span className="rounded-full bg-[#D4E3F2] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#4E6478]">
+                    Roadmap / Pilot
+                  </span>
                 </div>
                 <div className="grid gap-3">
                   {assistantPrompts.map((item) => (

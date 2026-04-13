@@ -28,8 +28,11 @@ export function HeroSection() {
               <h1 className="mt-3 max-w-2xl font-display text-3xl font-extrabold leading-[1.05] text-black sm:mt-4 sm:text-4xl lg:text-[3.25rem]">
                 Accountability That Runs the Facility
               </h1>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-snug text-[#2E4057] sm:mt-5 sm:text-xl sm:leading-relaxed">
-                AI-powered operating system for role accountability from discharge to bed-ready and recurring compliance.
+              <p className="mx-auto mt-4 max-w-xl text-lg font-semibold leading-snug text-[#3DA882] sm:mt-5 sm:text-xl sm:leading-relaxed">
+                AI-Powered Compliance Software for Nursing Homes & Skilled Nursing Facilities
+              </p>
+              <p className="mx-auto mt-2 max-w-xl text-base leading-snug text-[#2E4057] sm:mt-3 sm:text-lg sm:leading-relaxed">
+                The operating system for role accountability—from discharge and bed-ready workflows to admission agreements and recurring compliance.
               </p>
 
               <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-8">
