@@ -33,9 +33,11 @@ export const content = `
 
       <img src="/blog-images/workflow-checklist.jpg" alt="Admissions workflow stages with clear ownership" class="w-full rounded-xl my-8 shadow-md" />
 
-      <h2>E-signatures aren't magic if nobody tracks them</h2>
+      <h2>E-signatures aren't magic without PointClickCare (PCC) Integration</h2>
 
-      <p>Electronic signatures sound great in theory. In practice, they fail when you treat them like email attachments shot into the void.</p>
+      <p>Electronic signatures sound great in theory. But capturing a signature isn't enough if you're stuck resolving duplicate manual data entry afterwards. What facilities actually need is a continuous workflow where their <a href="/solutions/pointclickcare-esign-admissions" class="text-[#3DA882] hover:underline font-semibold">eSign admissions agreements automatically push to PointClickCare (PCC)</a>.</p>
+
+      <p>In practice, standalone e-signature tools fail when you treat them like generic email attachments shot into the void and forced to be manually transcribed.</p>
 
       <p>What doesn't work: Send documents to family. Hope they sign them. Discover three days later that they never opened the email because it landed in spam or they were at work or they didn't understand what they were looking at.</p>
 

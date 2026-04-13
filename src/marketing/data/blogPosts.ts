@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-03-10",
     readTime: "9 min",
     category: "Admissions",
-    tags: ["Admissions", "E-Signature", "SNF Operations"],
+    tags: ["Admissions", "E-Signature", "PointClickCare", "SNF Operations"],
     image: "/blog-images/admissions-workflow.jpg"
   },
   {
