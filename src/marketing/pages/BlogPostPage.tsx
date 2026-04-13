@@ -12,9 +12,12 @@ import {
 } from '../seo/blogArticleMeta';
 
 export function BlogPostPage() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const post = blogPosts.find((p) => p.id === Number(id));
+  const slugPost = blogPosts.find((p) => p.slug === slug);
+  const legacyId = slug !== undefined && /^\d+$/.test(slug) ? Number(slug) : null;
+  const legacyPost = legacyId !== null ? blogPosts.find((p) => p.id === legacyId) : undefined;
+  const post = slugPost ?? legacyPost;
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {
@@ -33,10 +36,14 @@ export function BlogPostPage() {
 
   useEffect(() => {
     if (post) return;
-    const numId = Number(id);
-    if (id === undefined || Number.isNaN(numId)) return;
+    if (slug === undefined) return;
     applyBlogNotFoundMeta();
-  }, [post, id]);
+  }, [post, slug]);
+
+  useEffect(() => {
+    if (!legacyPost || slug === undefined) return;
+    navigate(`/blog/${legacyPost.slug}`, { replace: true });
+  }, [legacyPost, navigate, slug]);
 
   useEffect(() => {
     if (!post) return;

@@ -41,7 +41,7 @@ export default function App() {
         <Route path="/security" element={<SecurityPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:id" element={<BlogPostPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/videos" element={<VideosPage />} />
         <Route path="/contact" element={<ContactPage />} />

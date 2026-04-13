@@ -50,9 +50,9 @@ staticRoutes.forEach(route => {
 // Parse blog instances by splitting by "id: "
 const blocks = blogFileContent.split('id:').slice(1);
 blocks.forEach(block => {
-  const idMatch = block.match(/^\s*(\d+)/);
-  if (!idMatch) return;
-  const id = idMatch[1];
+  const slugMatch = block.match(/slug:\s*["']([^"']+)["']/);
+  if (!slugMatch) return;
+  const slug = slugMatch[1];
   
   const dateMatch = block.match(/date:\s*["']([^"']+)["']/);
   const dateModifiedMatch = block.match(/dateModified:\s*["']([^"']+)["']/);
@@ -60,7 +60,7 @@ blocks.forEach(block => {
   const lastMod = dateModifiedMatch ? dateModifiedMatch[1] : (dateMatch ? dateMatch[1] : today);
 
   sitemaps.push(`  <url>
-    <loc>${SITE_URL}/blog/${id}</loc>
+    <loc>${SITE_URL}/blog/${slug}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>

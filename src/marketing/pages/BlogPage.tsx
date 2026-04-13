@@ -185,11 +185,11 @@ export function BlogPage() {
                 <Reveal key={post.id}>
                   <article
                     className="h-full cursor-pointer overflow-hidden rounded-2xl border border-[#E4EDF5] bg-white shadow-[0_8px_28px_rgba(46,64,87,0.06)] transition hover:shadow-[0_16px_40px_rgba(46,64,87,0.08)]"
-                    onClick={() => navigate(`/blog/${post.id}`)}
+                    onClick={() => navigate(`/blog/${post.slug}`)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        navigate(`/blog/${post.id}`);
+                        navigate(`/blog/${post.slug}`);
                       }
                     }}
                     role="link"

@@ -1,5 +1,6 @@
 export type BlogPost = {
   id: number;
+  slug: string;
   title: string;
   subtitle: string;
   excerpt: string;
@@ -21,6 +22,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
+    slug: "hidden-cost-of-manual-bed-tracking",
     title: "The Hidden Cost of Manual Bed Tracking: Analysis of 50 SNFs",
     subtitle: "Our exclusive research reveals how manual processes cost facilities an average of $804,000 annually",
     excerpt: "We analyzed data from 50 skilled nursing facilities to quantify the true cost of manual bed tracking. The results will shock you.",
@@ -36,6 +38,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
+    slug: "case-study-oak-hills-snf",
     title: "Case Study: How Oak Hills SNF Saved $47,280 in Year One",
     subtitle: "A detailed look at real implementation results and the strategies that drove success",
     excerpt: "When Oak Hills implemented BedTracker, they transformed their entire admissions process. Here's exactly how they did it.",
@@ -50,6 +53,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 3,
+    slug: "snf-bedtracker-efficiency-framework",
     title: "The BedTracker Efficiency Framework: A New Approach to SNF Operations",
     subtitle: "Our proprietary methodology for measuring and optimizing facility efficiency",
     excerpt: "After working with 100+ facilities, we've developed a framework that consistently improves operational efficiency by 40% or more.",
@@ -64,6 +68,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
+    slug: "survey-ready-documentation-state-inspectors",
     title: "Survey-Ready Documentation: What State Inspectors Actually Look For",
     subtitle: "Insider insights from former state surveyors on documentation that prevents violations",
     excerpt: "We interviewed former state surveyors to understand exactly what they look for during inspections. The insights might surprise you.",
@@ -77,6 +82,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 5,
+    slug: "mathematics-of-patient-placement-snf",
     title: "The Mathematics of Patient Placement: Optimizing for Care and Revenue",
     subtitle: "How data-driven placement decisions can improve both patient outcomes and bottom line",
     excerpt: "Using machine learning analysis of placement patterns, we've identified the optimal approach to patient assignments.",
@@ -91,6 +97,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 6,
+    slug: "snf-referral-to-signed-admission-agreement",
     title: "From Referral to Signed Admission Agreement: Owning Every Step in SNF Intake",
     subtitle: "How skilled nursing teams cut packet delays, handoffs, and guesswork between referral and a complete signed admissions file",
     excerpt: "Paper chasing and unclear ownership kill admissions speed. Here is a practical way to run referral-to-signature workflow without losing accountability.",
@@ -104,6 +111,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 7,
+    slug: "snf-grievance-tracking-survey-proof",
     title: "SNF Grievance Tracking That Holds Up When Surveyors Ask for Proof",
     subtitle: "What to document beyond the form so grievance workflows are complete, dated, and defensible",
     excerpt: "A filled grievance form is not enough. Teams that pass scrutiny show intake, investigation, response, and closure with owners and timestamps.",
@@ -117,6 +125,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 8,
+    slug: "first-21-days-resident-check-in-schedule",
     title: "The First 21 Days: A Real Check-In Schedule for Residents and Families",
     subtitle: "Why day-one, day-three, and week-two touchpoints matter—and how SNFs catch friction before it escalates",
     excerpt: "Concierge-style follow-up is not a brochure perk. Structured check-ins on day 1, 3, 7, and beyond surface questions early while the resident is still in your building.",
@@ -130,6 +139,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 9,
+    slug: "snf-discharge-to-bed-ready-timeline",
     title: "Discharge to Bed-Ready: One Timeline for Nursing, EVS, and Maintenance",
     subtitle:
       "Why the handoff breaks without a single owner chain—and how facilities cut idle-bed time when every role shares one clock",
@@ -145,6 +155,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 10,
+    slug: "recurring-cleaning-maintenance-compliance",
     title: "Recurring Cleaning and Maintenance: Assignments, Inboxes, and Closing the Loop",
     subtitle:
       "Operational execution—not survey binders—is what keeps generator tests, room turns, and preventive rounds from slipping",
@@ -160,6 +171,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 11,
+    slug: "snf-admission-agreement-compliance-f-tags-2026",
     title: "SNF Admission Agreement Compliance: What CMS Surveyors Are Looking for in 2026",
     subtitle: "Understanding recent F-tag updates and why paper admission packets are a major compliance risk.",
     excerpt: "CMS surveyors are cracking down on missing signatures in SNF admissions agreements. Here is how automating your referral-to-signature workflow fixes the problem.",
@@ -172,6 +184,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 12,
+    slug: "cut-snf-discharge-turnaround-time",
     title: "How Nursing Homes Can Cut Discharge Turnaround Time by 42%",
     subtitle: "Replacing the hallway whiteboard with automated role orchestration.",
     excerpt: "Every minute a bed sits empty after discharge costs revenue. See how passing the baton automatically between EVS, Maintenance, and Nursing cuts idle times significantly.",
@@ -184,6 +197,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 13,
+    slug: "complycare-pointclickcare-compliance-stack",
     title: "How ComplyCare + PointClickCare Creates a Complete Compliance Stack",
     subtitle: "Why an EHR is not an accountability engine, and how integration solves the gap.",
     excerpt: "PointClickCare holds your medical records, but it doesn't force your maintenance team to check the generator on time. Learn why integrating them creates the ultimate SNF tech stack.",

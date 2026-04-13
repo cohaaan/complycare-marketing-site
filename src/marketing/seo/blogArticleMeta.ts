@@ -47,7 +47,7 @@ export function removeBlogArticleMetaArtifacts() {
 export function applyBlogArticleMeta(post: BlogPost) {
   const description =
     post.excerpt.length <= 160 ? post.excerpt : `${post.excerpt.slice(0, 157)}…`;
-  const path = `/blog/${post.id}`;
+  const path = `/blog/${post.slug}`;
   const url = `${SITE_ORIGIN}${path}`;
   const imageUrl = `${SITE_ORIGIN}${post.image}`;
   const title = `${post.title} | ComplyCare Blog`;

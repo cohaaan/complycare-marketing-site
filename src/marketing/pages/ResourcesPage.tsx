@@ -51,7 +51,7 @@ export function ResourcesPage() {
                   <h2 className="mt-4 font-display text-2xl font-semibold text-[#2E4057]">{post.title}</h2>
                   <p className="mt-3 text-sm leading-relaxed text-[#4E6478]">{post.excerpt}</p>
                   <Link
-                    to={`/blog/${post.id}`}
+                    to={`/blog/${post.slug}`}
                     className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#3DA882] hover:text-[#4E6478]"
                   >
                     Read now
