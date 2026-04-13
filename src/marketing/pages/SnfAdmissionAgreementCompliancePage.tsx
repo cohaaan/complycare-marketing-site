@@ -4,6 +4,7 @@ import { ProductCanvas } from '../components/ProductCanvas';
 import { SectionIntro } from '../components/SectionIntro';
 import { SiteShell } from '../components/SiteShell';
 import { Reveal } from '../components/Reveal';
+import { FAQAccordion } from '../components/FAQAccordion';
 
 const solutionTracks = [
   {
@@ -22,6 +23,21 @@ const solutionTracks = [
     title: 'Native Mobile Execution',
     text: 'Capture signatures on a tablet right at the bedside. The data syncs instantly to the command center.',
   },
+];
+
+const admissionFaqs = [
+  {
+    question: "How does ComplyCare track SNF admission signatures?",
+    answer: "ComplyCare tracks the entire admission packet lifecycle from initial referral to final signature. You can view a dashboard showing exactly which signatures are missing and who owns the follow-up."
+  },
+  {
+    question: "Does it integrate with PointClickCare?",
+    answer: "Yes. ComplyCare features deep integration with PointClickCare, allowing you to sync census data and maintain workflow continuity without duplicate data entry."
+  },
+  {
+    question: "Can families sign admission agreements digitally?",
+    answer: "Yes. Our native mobile and web interfaces allow for secure e-signatures at the bedside or remotely, ensuring zero paper gaps."
+  }
 ];
 
 export function SnfAdmissionAgreementCompliancePage() {
@@ -61,6 +77,12 @@ export function SnfAdmissionAgreementCompliancePage() {
         </section>
 
         <section className="section-pad border-b border-[#E4EDF5] bg-white">
+          <div className="cc-container">
+            <FAQAccordion faqs={admissionFaqs} headline="SNF Admission Agreement FAQs" />
+          </div>
+        </section>
+
+        <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
           <div className="cc-container text-center">
             <h2 className="font-display text-3xl font-semibold text-[#2E4057]">Stop failing admission agreement surveys.</h2>
             <p className="mt-4 text-lg text-[#4E6478]">Get the operational layer your EHR is missing.</p>

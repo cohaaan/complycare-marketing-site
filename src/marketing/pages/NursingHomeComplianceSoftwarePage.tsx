@@ -5,6 +5,7 @@ import { SectionIntro } from '../components/SectionIntro';
 import { SiteShell } from '../components/SiteShell';
 import { outcomes, rolesServed } from '../data/content';
 import { Reveal } from '../components/Reveal';
+import { FAQAccordion } from '../components/FAQAccordion';
 
 const solutionTracks = [
   {
@@ -23,6 +24,21 @@ const solutionTracks = [
     title: 'Proactive Intelligence',
     text: 'Get alerts on payer mix, Medicare-days-left, and recurring operational gaps before they become reportable incidents.',
   },
+];
+
+const complianceFaqs = [
+  {
+    question: "What is the difference between ComplyCare and a traditional compliance binder?",
+    answer: "Unlike static binders or document storage, ComplyCare routes tasks automatically to the responsible staff member and captures a timestamped signature the moment the work is completed, creating an immutable audit log."
+  },
+  {
+    question: "Can we track recurring maintenance and EVS tasks?",
+    answer: "Yes. You can pre-schedule deep cleans, generator checks, and other recurring requirements. Staff receive notifications on their mobile devices when tasks are due."
+  },
+  {
+    question: "Does the platform help with CMS survey readiness?",
+    answer: "Absolutely. ComplyCare creates organized, easily exportable evidence logs for surveyors showing exactly who completed each daily, weekly, or monthly compliance task and when."
+  }
 ];
 
 export function NursingHomeComplianceSoftwarePage() {
@@ -67,6 +83,12 @@ export function NursingHomeComplianceSoftwarePage() {
                 </article>
               </Reveal>
             ))}
+          </div>
+        </section>
+
+        <section className="section-pad border-b border-[#E4EDF5] bg-white">
+          <div className="cc-container">
+            <FAQAccordion faqs={complianceFaqs} headline="Nursing Home Compliance FAQs" />
           </div>
         </section>
 

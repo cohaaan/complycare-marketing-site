@@ -4,6 +4,7 @@ import { ProductCanvas } from '../components/ProductCanvas';
 import { SectionIntro } from '../components/SectionIntro';
 import { SiteShell } from '../components/SiteShell';
 import { Reveal } from '../components/Reveal';
+import { FAQAccordion } from '../components/FAQAccordion';
 
 const solutionTracks = [
   {
@@ -22,6 +23,21 @@ const solutionTracks = [
     title: 'Cut Turnaround By Up To 42%',
     text: 'Facilities replacing phone tag with automated role routing can help cut average discharge-to-ready turnaround times by up to 42%.',
   },
+];
+
+const dischargeFaqs = [
+  {
+    question: "How does automated discharge turnover work in a nursing home?",
+    answer: "The moment a discharge is logged, ComplyCare automatically routes sequential tasks to Nursing, EVS, and Maintenance. When EVS finishes cleaning, Maintenance is instantly notified, eliminating hallway phone tag."
+  },
+  {
+    question: "Can I replace my hallway whiteboard with this software?",
+    answer: "Yes. We offer an interactive, live floor plan and bed management view that shows real-time bed states (hold, dirty, ready) to everyone from admissions to environmental services."
+  },
+  {
+    question: "How much faster can we turnover beds?",
+    answer: "Facilities transitioning from phone tag and manual whiteboards to automated role routing can help cut average discharge-to-ready turnaround times by up to 42%."
+  }
 ];
 
 export function DischargeTurnoverSoftwarePage() {
@@ -61,6 +77,12 @@ export function DischargeTurnoverSoftwarePage() {
         </section>
 
         <section className="section-pad border-b border-[#E4EDF5] bg-white">
+          <div className="cc-container">
+            <FAQAccordion faqs={dischargeFaqs} headline="Discharge Turnover FAQs" />
+          </div>
+        </section>
+
+        <section className="section-pad border-b border-[#E4EDF5] bg-[#F2F6FA]">
           <div className="cc-container text-center">
             <h2 className="font-display text-3xl font-semibold text-[#2E4057]">Stop leaving revenue empty.</h2>
             <p className="mt-4 text-lg text-[#4E6478]">Start orchestrating your facility turnarounds.</p>
