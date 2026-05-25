@@ -47,6 +47,7 @@ export function DischargeTurnoverSoftwarePage() {
         title="Discharge Turnover Software for SNFs"
         description="The operational discharge turnover software designed for skilled nursing facilities. Replace whiteboards and reduce bed delays."
         path="/solutions/discharge-turnover-software"
+        faqs={dischargeFaqs}
       />
       <SiteShell includeFinalCta>
         <section className="section-pad border-b border-[#E4EDF5]">
@@ -55,6 +56,7 @@ export function DischargeTurnoverSoftwarePage() {
               eyebrow="Discharge Turnover Software for SNFs"
               title="Turn beds faster. Eliminate the phone tag."
               description="Beds stay idle because teams operate in silos. ComplyCare routes the next steps to each team in sequence and captures completion natively, getting your beds placement-ready hours sooner."
+              isH1={true}
             />
 
             <div className="mt-8 grid gap-4 md:grid-cols-1">

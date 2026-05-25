@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { DEFAULT_OG_IMAGE_PATH, SITE_ORIGIN } from '../seo/constants';
+import { DEFAULT_OG_IMAGE_PATH, SITE_ORIGIN, canonicalUrl } from '../seo/constants';
 
 type PageMetaProps = {
   title: string;
@@ -7,6 +7,8 @@ type PageMetaProps = {
   path: string;
   /** Absolute path for og:image / twitter:image (e.g. `/complycare-logo.svg`). */
   imagePath?: string;
+  /** Optional array of FAQs to inject FAQPage schema. */
+  faqs?: { question: string; answer: string }[];
 };
 
 const BASE_TITLE = 'ComplyCare.io';
@@ -29,11 +31,10 @@ function setTwitter(name: string, content: string) {
   ensureMeta('name', name).setAttribute('content', content);
 }
 
-export function PageMeta({ title, description, path, imagePath = DEFAULT_OG_IMAGE_PATH }: PageMetaProps) {
+export function PageMeta({ title, description, path, imagePath = DEFAULT_OG_IMAGE_PATH, faqs }: PageMetaProps) {
   useEffect(() => {
     const fullTitle = title ? `${title} | ${BASE_TITLE}` : BASE_TITLE;
-    const pathNorm = path === '/' ? '' : path;
-    const pageUrl = `${SITE_ORIGIN}${pathNorm || '/'}`;
+    const pageUrl = canonicalUrl(path);
     const imageUrl = `${SITE_ORIGIN}${imagePath}`;
 
     document.title = fullTitle;
@@ -64,7 +65,32 @@ export function PageMeta({ title, description, path, imagePath = DEFAULT_OG_IMAG
     setTwitter('twitter:title', fullTitle);
     setTwitter('twitter:description', description);
     setTwitter('twitter:image', imageUrl);
-  }, [description, imagePath, path, title]);
+
+    const faqSchemaId = 'faq-page-schema';
+    let faqScript = document.getElementById(faqSchemaId);
+    if (faqs && faqs.length > 0) {
+      if (!faqScript) {
+        faqScript = document.createElement('script');
+        faqScript.id = faqSchemaId;
+        faqScript.type = 'application/ld+json';
+        document.head.appendChild(faqScript);
+      }
+      faqScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      });
+    } else if (faqScript) {
+      faqScript.remove();
+    }
+  }, [description, imagePath, path, title, faqs]);
 
   return null;
 }

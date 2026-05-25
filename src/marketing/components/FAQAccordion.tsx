@@ -13,27 +13,8 @@ export function FAQAccordion({ faqs, headline = "Frequently Asked Questions" }: 
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Generate the JSON-LD FAQPage schema dynamically
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer,
-      },
-    })),
-  };
-
   return (
     <div className="mx-auto max-w-3xl">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      
       <div className="text-center mb-8">
         <h2 className="font-display text-3xl font-semibold text-[#2E4057]">{headline}</h2>
       </div>

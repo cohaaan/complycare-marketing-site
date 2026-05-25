@@ -99,7 +99,7 @@ export const featureCards: FeatureCard[] = [
     statValue: 'Owner + timestamp',
     visual: 'documents',
     tone: 'sky',
-    videoSrc: '/grievance-form-demo.mp4',
+    videoSrc: '/admissions-agreement-demo.mp4',
   },
   {
     id: 'facility-ai-assistant',

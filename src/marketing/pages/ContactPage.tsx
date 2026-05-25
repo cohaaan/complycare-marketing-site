@@ -78,6 +78,7 @@ export function ContactPage() {
                 eyebrow="Book a demo"
                 title="See ComplyCare.io in your operational context"
                 description="Share your current admission volume, facility footprint, and compliance priorities. We will tailor the walkthrough to your workflows."
+                isH1={true}
               />
 
               <div className="mt-8 rounded-2xl border border-[#E4EDF5] bg-white p-6">

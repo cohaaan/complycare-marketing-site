@@ -48,6 +48,7 @@ export function NursingHomeComplianceSoftwarePage() {
         title="Nursing Home Compliance Software"
         description="ComplyCare.io is the AI-powered nursing home compliance software that replaces spreadsheets with live operational accountability."
         path="/solutions/nursing-home-compliance-software"
+        faqs={complianceFaqs}
       />
       <SiteShell includeFinalCta>
         <section className="section-pad border-b border-[#E4EDF5]">
@@ -56,6 +57,7 @@ export function NursingHomeComplianceSoftwarePage() {
               eyebrow="Nursing Home Compliance Software"
               title="Stop chasing binders. Start driving accountability."
               description="Most compliance software is just a document vault. ComplyCare is an operational engine that ensures your nursing home staff actually completes the required tasks, on time, with defensible proof."
+              isH1={true}
             />
 
             <div className="mt-8 flex flex-wrap gap-2">

@@ -2,168 +2,156 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://complycare.io/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://complycare.io/platform</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/platform/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://complycare.io/solutions/post-acute</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/solutions/post-acute/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://complycare.io/solutions/pointclickcare-esign-admissions</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/solutions/pointclickcare-esign-admissions/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/solutions/nursing-home-compliance-software</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/solutions/nursing-home-compliance-software/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/solutions/snf-admission-agreement-compliance</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/solutions/snf-admission-agreement-compliance/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/solutions/discharge-turnover-software</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/solutions/discharge-turnover-software/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/security</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/security/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://complycare.io/about</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/about/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://complycare.io/resources</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/resources/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/blog/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://complycare.io/contact</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/contact/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/pricing</loc>
-    <lastmod>2026-04-13</lastmod>
+    <loc>https://complycare.io/pricing/</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://complycare.io/payments/liberty</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://complycare.io/signin</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://complycare.io/blog/hidden-cost-of-manual-bed-tracking</loc>
+    <loc>https://complycare.io/blog/hidden-cost-of-manual-bed-tracking/</loc>
     <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/case-study-oak-hills-snf</loc>
+    <loc>https://complycare.io/blog/case-study-oak-hills-snf/</loc>
     <lastmod>2024-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/snf-bedtracker-efficiency-framework</loc>
+    <loc>https://complycare.io/blog/snf-bedtracker-efficiency-framework/</loc>
     <lastmod>2024-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/survey-ready-documentation-state-inspectors</loc>
+    <loc>https://complycare.io/blog/survey-ready-documentation-state-inspectors/</loc>
     <lastmod>2024-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/mathematics-of-patient-placement-snf</loc>
+    <loc>https://complycare.io/blog/mathematics-of-patient-placement-snf/</loc>
     <lastmod>2024-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/snf-referral-to-signed-admission-agreement</loc>
+    <loc>https://complycare.io/blog/snf-referral-to-signed-admission-agreement/</loc>
     <lastmod>2025-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/snf-grievance-tracking-survey-proof</loc>
+    <loc>https://complycare.io/blog/snf-grievance-tracking-survey-proof/</loc>
     <lastmod>2025-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/first-21-days-resident-check-in-schedule</loc>
+    <loc>https://complycare.io/blog/first-21-days-resident-check-in-schedule/</loc>
     <lastmod>2025-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/snf-discharge-to-bed-ready-timeline</loc>
+    <loc>https://complycare.io/blog/snf-discharge-to-bed-ready-timeline/</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/recurring-cleaning-maintenance-compliance</loc>
+    <loc>https://complycare.io/blog/recurring-cleaning-maintenance-compliance/</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/snf-admission-agreement-compliance-f-tags-2026</loc>
+    <loc>https://complycare.io/blog/snf-admission-agreement-compliance-f-tags-2026/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/cut-snf-discharge-turnaround-time</loc>
+    <loc>https://complycare.io/blog/cut-snf-discharge-turnaround-time/</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://complycare.io/blog/complycare-pointclickcare-compliance-stack</loc>
+    <loc>https://complycare.io/blog/complycare-pointclickcare-compliance-stack/</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>

@@ -38,6 +38,7 @@ export function AboutPage() {
               eyebrow="About ComplyCare.io"
               title="Building the operating system for post-acute care operations and compliance"
               description="We help care organizations move faster and stay audit-ready by replacing siloed tools with one live platform for oversight and execution."
+              isH1={true}
             />
           </div>
         </section>

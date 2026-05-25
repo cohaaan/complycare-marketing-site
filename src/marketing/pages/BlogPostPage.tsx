@@ -48,12 +48,12 @@ export function BlogPostPage() {
   useEffect(() => {
     if (!post) return;
 
-    applyBlogArticleMeta(post);
+    applyBlogArticleMeta(post, content);
 
     return () => {
       removeBlogArticleMetaArtifacts();
     };
-  }, [post]);
+  }, [post, content]);
 
   if (!post) {
     return (

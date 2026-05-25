@@ -1,5 +1,5 @@
 import type { BlogPost } from '../data/blogPosts';
-import { SITE_ORIGIN } from './constants';
+import { SITE_ORIGIN, canonicalUrl } from './constants';
 
 function ensureMeta(attr: 'name' | 'property', key: string): HTMLMetaElement {
   let el = document.querySelector(`meta[${attr}="${key}"]`);
@@ -33,10 +33,66 @@ function setCanonical(href: string) {
   link.href = href;
 }
 
+function extractFaqsFromHtml(html: string): { question: string; answer: string }[] {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html;
+  const faqs: { question: string; answer: string }[] = [];
+  const h2s = tempDiv.querySelectorAll('h2');
+
+  h2s.forEach((h2) => {
+    const question = h2.textContent?.trim();
+    const nextP = h2.nextElementSibling;
+    if (question && nextP && nextP.tagName === 'P') {
+      const strong = nextP.querySelector('strong');
+      if (strong && strong.textContent?.includes('Answer:')) {
+        const answerText = nextP.textContent?.replace('Answer:', '').trim();
+        if (answerText) {
+          faqs.push({ question, answer: answerText });
+        }
+      }
+    }
+  });
+
+  return faqs;
+}
+
+function applyFaqSchema(articleContentHtml: string | null | undefined) {
+  const faqSchemaId = 'blog-faq-schema';
+  let faqScript = document.getElementById(faqSchemaId);
+
+  if (articleContentHtml) {
+    const faqs = extractFaqsFromHtml(articleContentHtml);
+    if (faqs.length > 0) {
+      if (!faqScript) {
+        faqScript = document.createElement('script');
+        faqScript.id = faqSchemaId;
+        faqScript.type = 'application/ld+json';
+        document.head.appendChild(faqScript);
+      }
+      faqScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      });
+      return;
+    }
+  }
+
+  faqScript?.remove();
+}
+
 /** Remove JSON-LD and article-specific meta; leave generic OG for next route to overwrite via PageMeta. */
 export function removeBlogArticleMetaArtifacts() {
   document.getElementById('blog-post-schema')?.remove();
   document.getElementById('breadcrumb-schema')?.remove();
+  document.getElementById('blog-faq-schema')?.remove();
   removeMetaProperty('article:published_time');
   removeMetaProperty('article:modified_time');
   removeMetaProperty('article:author');
@@ -44,11 +100,10 @@ export function removeBlogArticleMetaArtifacts() {
 }
 
 /** Article page: title, description, OG article type, canonical, JSON-LD. */
-export function applyBlogArticleMeta(post: BlogPost) {
+export function applyBlogArticleMeta(post: BlogPost, articleContentHtml?: string | null) {
   const description =
     post.excerpt.length <= 160 ? post.excerpt : `${post.excerpt.slice(0, 157)}…`;
-  const path = `/blog/${post.slug}`;
-  const url = `${SITE_ORIGIN}${path}`;
+  const url = canonicalUrl(`/blog/${post.slug}`);
   const imageUrl = `${SITE_ORIGIN}${post.image}`;
   const title = `${post.title} | ComplyCare Blog`;
 
@@ -110,7 +165,7 @@ export function applyBlogArticleMeta(post: BlogPost) {
     description: post.excerpt,
     image: imageUrl,
     author: {
-      '@type': 'Person',
+      '@type': post.author === 'ComplyCare Team' ? 'Organization' : 'Person',
       name: post.author,
     },
     publisher: {
@@ -148,13 +203,13 @@ export function applyBlogArticleMeta(post: BlogPost) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: SITE_ORIGIN,
+        item: canonicalUrl('/'),
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: `${SITE_ORIGIN}/blog`,
+        item: canonicalUrl('/blog'),
       },
       {
         '@type': 'ListItem',
@@ -165,6 +220,8 @@ export function applyBlogArticleMeta(post: BlogPost) {
     ],
   };
   breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+
+  applyFaqSchema(articleContentHtml);
 }
 
 export function applyBlogNotFoundMeta() {
@@ -184,7 +241,7 @@ export function applyBlogNotFoundMeta() {
   setMetaProperty('og:type', 'website');
   setMetaProperty('og:title', title);
   setMetaProperty('og:description', description);
-  setMetaProperty('og:url', `${SITE_ORIGIN}/blog`);
+  setMetaProperty('og:url', canonicalUrl('/blog'));
   setMetaProperty('og:image', `${SITE_ORIGIN}/complycare-logo.svg`);
 
   setTwitter('twitter:card', 'summary_large_image');
@@ -192,5 +249,5 @@ export function applyBlogNotFoundMeta() {
   setTwitter('twitter:description', description);
   setTwitter('twitter:image', `${SITE_ORIGIN}/complycare-logo.svg`);
 
-  setCanonical(`${SITE_ORIGIN}/blog`);
+  setCanonical(canonicalUrl('/blog'));
 }

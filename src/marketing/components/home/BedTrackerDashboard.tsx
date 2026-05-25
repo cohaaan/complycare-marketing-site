@@ -74,7 +74,7 @@ export function BedTrackerDashboard() {
 
       {/* Main content - squeezed; max-sm: tighter vertical rhythm for mobile */}
       <main className="min-w-0 flex-1 overflow-auto px-1 py-1.5 sm:p-2">
-        <h1 className="mb-1 text-xs font-bold text-[#111827] sm:mb-1.5 sm:text-sm">Hello, John</h1>
+        <p className="mb-1 text-xs font-bold text-[#111827] sm:mb-1.5 sm:text-sm">Hello, John</p>
 
         {/* Row 1: Large cards - Total Beds, Occupied Beds */}
         <div className="mb-1 grid grid-cols-2 gap-1 sm:mb-1.5 sm:gap-1.5">

@@ -43,6 +43,7 @@ export function SecurityPage() {
               eyebrow="Security center"
               title="Healthcare-grade controls for operators"
               description="HIPAA-ready posture and a SOC 2–oriented framework built for post-acute compliance reviews."
+              isH1={true}
             />
 
             <div className="mt-8 flex flex-wrap gap-2">

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Clock, Search, Calendar, User } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { Reveal } from '../components/Reveal';
 import { SiteShell } from '../components/SiteShell';
 import { blogPosts } from '../data/blogPosts';
-import { SITE_ORIGIN } from '../seo/constants';
+import { canonicalUrl, SITE_ORIGIN } from '../seo/constants';
 
 const categories = [
   'All',
@@ -20,7 +20,6 @@ const categories = [
 ];
 
 export function BlogPage() {
-  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -49,11 +48,11 @@ export function BlogPage() {
       name: 'ComplyCare insights',
       description:
         'Research, case studies, and guides for SNF bed management, admissions, compliance, and resident experience.',
-      url: `${SITE_ORIGIN}/blog`,
+      url: canonicalUrl('/blog'),
       publisher: {
         '@type': 'Organization',
         name: 'ComplyCare',
-        url: SITE_ORIGIN,
+        url: canonicalUrl('/'),
         logo: {
           '@type': 'ImageObject',
           url: `${SITE_ORIGIN}/complycare-logo.svg`,
@@ -63,7 +62,7 @@ export function BlogPage() {
         '@type': 'BlogPosting',
         headline: p.title,
         description: p.excerpt,
-        url: `${SITE_ORIGIN}/blog/${p.id}`,
+        url: canonicalUrl(`/blog/${p.slug}`),
         datePublished: p.date,
         dateModified: p.dateModified ?? p.date,
         author: { '@type': 'Person', name: p.author },
@@ -160,13 +159,12 @@ export function BlogPage() {
                         <Clock className="h-4 w-4" />
                         <span>{featuredPost.readTime} read</span>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => navigate(`/blog/${featuredPost.id}`)}
-                        className="mt-6 rounded-full bg-[#3DA882] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2f8f6a]"
+                      <Link
+                        to={`/blog/${featuredPost.slug}/`}
+                        className="mt-6 inline-flex rounded-full bg-[#3DA882] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2f8f6a]"
                       >
                         Read full analysis
-                      </button>
+                      </Link>
                     </div>
                     <div className="overflow-hidden rounded-2xl">
                       <img
@@ -183,18 +181,11 @@ export function BlogPage() {
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {filteredPosts.map((post) => (
                 <Reveal key={post.id}>
-                  <article
-                    className="h-full cursor-pointer overflow-hidden rounded-2xl border border-[#E4EDF5] bg-white shadow-[0_8px_28px_rgba(46,64,87,0.06)] transition hover:shadow-[0_16px_40px_rgba(46,64,87,0.08)]"
-                    onClick={() => navigate(`/blog/${post.slug}`)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        navigate(`/blog/${post.slug}`);
-                      }
-                    }}
-                    role="link"
-                    tabIndex={0}
+                  <Link
+                    to={`/blog/${post.slug}/`}
+                    className="block h-full no-underline transition hover:shadow-[0_16px_40px_rgba(46,64,87,0.08)]"
                   >
+                    <article className="h-full overflow-hidden rounded-2xl border border-[#E4EDF5] bg-white shadow-[0_8px_28px_rgba(46,64,87,0.06)]">
                     <div className="relative">
                       <img src={post.image} alt={post.title} className="h-48 w-full object-cover" />
                       <div className="absolute left-4 top-4 flex flex-wrap gap-2">
@@ -238,7 +229,8 @@ export function BlogPage() {
                         ))}
                       </div>
                     </div>
-                  </article>
+                    </article>
+                  </Link>
                 </Reveal>
               ))}
             </div>

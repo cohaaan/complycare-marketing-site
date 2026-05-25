@@ -43,6 +43,7 @@ export function SolutionsPostAcutePage() {
               eyebrow="Solutions for post-acute care"
               title="Built for the operational complexity of skilled nursing and transitional care"
               description="ComplyCare.io aligns administrators, admissions, nursing, compliance, and floor teams on one live platform for speed and defensibility."
+              isH1={true}
             />
 
             <div className="mt-8 flex flex-wrap gap-2">

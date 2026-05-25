@@ -7,6 +7,12 @@ const __dirname = path.dirname(__filename);
 
 const SITE_URL = 'https://complycare.io';
 
+function sitemapLoc(path) {
+  if (path === '/') return `${SITE_URL}/`;
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  return `${SITE_URL}${normalized.endsWith('/') ? normalized : `${normalized}/`}`;
+}
+
 const staticRoutes = [
   { url: '/', changefreq: 'weekly', priority: 1.0 },
   { url: '/platform', changefreq: 'monthly', priority: 0.9 },
@@ -20,9 +26,7 @@ const staticRoutes = [
   { url: '/resources', changefreq: 'weekly', priority: 0.85 },
   { url: '/blog', changefreq: 'weekly', priority: 0.9 },
   { url: '/contact', changefreq: 'monthly', priority: 0.85 },
-  { url: '/pricing', changefreq: 'monthly', priority: 0.85 },
-  { url: '/payments/liberty', changefreq: 'yearly', priority: 0.5 },
-  { url: '/signin', changefreq: 'monthly', priority: 0.4 }
+  { url: '/pricing', changefreq: 'monthly', priority: 0.85 }
 ];
 
 const blogDataPath = path.join(__dirname, '../src/marketing/data/blogPosts.ts');
@@ -40,7 +44,7 @@ const sitemaps = [];
 // Add static routes
 staticRoutes.forEach(route => {
   sitemaps.push(`  <url>
-    <loc>${SITE_URL}${route.url}</loc>
+    <loc>${sitemapLoc(route.url)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
@@ -60,7 +64,7 @@ blocks.forEach(block => {
   const lastMod = dateModifiedMatch ? dateModifiedMatch[1] : (dateMatch ? dateMatch[1] : today);
 
   sitemaps.push(`  <url>
-    <loc>${SITE_URL}/blog/${slug}</loc>
+    <loc>${sitemapLoc(`/blog/${slug}`)}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>

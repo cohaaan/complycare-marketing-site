@@ -47,6 +47,7 @@ export function SnfAdmissionAgreementCompliancePage() {
         title="SNF Admission Agreement Compliance Software"
         description="Ensure SNF admission agreement compliance with automated eSign tracking, mobile capture, and clear accountability."
         path="/solutions/snf-admission-agreement-compliance"
+        faqs={admissionFaqs}
       />
       <SiteShell includeFinalCta>
         <section className="section-pad border-b border-[#E4EDF5]">
@@ -55,6 +56,7 @@ export function SnfAdmissionAgreementCompliancePage() {
               eyebrow="SNF Admission Agreement Compliance"
               title="Paperless, Defensible SNF Admissions"
               description="Forget about missing signatures and compliance blind spots. ComplyCare tracks every admission packet from referral to final e-signature with role-based accountability."
+              isH1={true}
             />
 
             <div className="mt-8 grid gap-4 md:grid-cols-1">

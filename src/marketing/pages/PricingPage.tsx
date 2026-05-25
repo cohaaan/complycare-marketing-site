@@ -37,6 +37,7 @@ export function PricingPage() {
               eyebrow="Pricing"
               title="Enterprise pricing aligned to operational footprint"
               description="ComplyCare.io pricing is scoped by facility count, workflow modules, integration needs, and implementation support."
+              isH1={true}
             />
 
             <div className="mt-8 rounded-2xl border border-[#5BBFA0]/40 bg-[#EAF7F2] p-6 text-sm text-[#4E6478]">
