@@ -216,15 +216,33 @@ All checks passed locally before deploy:
 
 ## Remaining work (not in this release)
 
-These were identified in the SEO audit but intentionally deferred:
+These were identified in the SEO audit. Status as of the follow-up G2 schema commit (`912e8bd`):
 
-1. **Entity disambiguation** — populate Organization `sameAs` (LinkedIn, Capterra, G2) and tighten US SNF niche in homepage JSON-LD.
-2. **Backlinks & listings** — Capterra/GetApp, competitor comparison pages, podcast/newsletter outreach.
-3. **Posts 1–8 content audit** — fictional case-study framing may affect E-E-A-T long term.
-4. **Internal link trailing slashes** — in-article `<a href="/blog/slug">` still omit trailing slash (minor 301 hop).
-5. **Homepage static vs runtime meta** — `index.html` title/description differ slightly from `HomePage` `PageMeta` on client navigation.
+### Done after initial release
 
-See `TODO_SEO.md` for the growth checklist (local reference, optional).
+- **G2 in Organization schema** — `sameAs` includes `https://www.g2.com/products/comply-care`; `areaServed` (United States) and `knowsAbout` (SNF focus) added in `index.html`.
+- **Search Console** — sitemap submitted; indexing requested for `/blog/` and F-tags post.
+- **Blog posts 9–13** — placeholder content replaced and deployed.
+
+### G2 / Capterra / GetApp / Software Advice (Jan 2026)
+
+On **January 29, 2026**, G2 announced an agreement to acquire **Capterra**, **Software Advice**, and **GetApp** from Gartner (deal expected to close Q1 2026). These marketplaces are consolidating under G2—not separate vendor programs long term.
+
+**Implication:** Maintain **one strong G2 seller + product profile** rather than creating a standalone Capterra listing. Ask G2 vendor support whether your profile syndicates to Capterra/GetApp/Software Advice or if legacy duplicate listings need merging.
+
+When additional public profile URLs exist (LinkedIn company page, distinct Capterra URL if still separate), add them to Organization `sameAs` in `index.html`.
+
+### Still open (growth, not crawl blockers)
+
+1. **G2 profile polish** — complete About, product screenshots, categories, reviews (on g2.com, not in this repo).
+2. **LinkedIn in `sameAs`** — after G2 support sets LinkedIn on the seller profile, add the URL to homepage schema.
+3. **Competitor comparison pages** — e.g. vs. ViClarity, whiteboard workflows (see `TODO_SEO.md`).
+4. **Posts 1–8 content audit** — fictional case-study framing may affect E-E-A-T long term.
+5. **Internal link trailing slashes** — in-article `<a href="/blog/slug">` still omit trailing slash (minor 301 hop).
+6. **Homepage static vs runtime meta** — `index.html` title/description differ slightly from `HomePage` `PageMeta` on client navigation.
+7. **External shoutouts** — long-term care podcasts, newsletters, backlinks.
+
+See [`TODO_SEO.md`](../TODO_SEO.md) for the updated growth checklist.
 
 ---
 
@@ -233,15 +251,16 @@ See `TODO_SEO.md` for the growth checklist (local reference, optional).
 1. **Blog index:** View source on `https://complycare.io/blog/` — confirm `<a href="/blog/.../">` on post cards.
 2. **F-tags post:** Open `https://complycare.io/blog/snf-admission-agreement-compliance-f-tags-2026/` — confirm full article, no placeholder text.
 3. **Sitemap:** `https://complycare.io/sitemap.xml` — URLs should end with `/` (except root).
-4. **Search Console:** Request re-index of `/blog/` and key posts; submit updated sitemap.
+4. **Search Console:** Confirm sitemap **Last read** updates; monitor **Performance** over coming weeks (initial setup and indexing requests completed May 2026).
 5. **Rich results:** Use [Google Rich Results Test](https://search.google.com/test/rich-results) on a solution page and an FAQ-style blog post.
 
 ---
 
 ## Related commits
 
-This release is intended to ship as a single cohesive commit on `main` with message along the lines of:
+| Commit | Summary |
+|--------|---------|
+| `da1550f` | SEO crawlability, sitemap/canonical alignment, posts 9–13, FAQ schema |
+| `912e8bd` | G2 `sameAs`, Organization `areaServed` / `knowsAbout` |
 
-> Fix crawlability, URL canonicalization, and structured data; publish blog posts 9–13
-
-For full diffs, see git history on `main` after this deploy.
+For full diffs, see git history on `main`.
