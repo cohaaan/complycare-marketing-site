@@ -148,15 +148,18 @@ Renamed public assets to match admissions-agreement positioning:
 
 ---
 
-## Build & deploy pipeline
+## Build & deploy (Netlify)
 
-No pipeline changes. Netlify still runs:
+`npm run build` runs sitemap generation, Vite, prerender (26 routes), then **`verify-build-output.js`** — the build **fails** if `Draft for:` or `Content to be written` appears in any file under `dist/`. See [`NETLIFY.md`](NETLIFY.md).
+
+---
 
 ```bash
 npm run build
 # → node scripts/generate-sitemap.js
 # → vite build
 # → node scripts/prerender-routes.js  (Puppeteer, 26 routes)
+# → node scripts/verify-build-output.js  (fails if draft placeholder text in dist/)
 ```
 
 Publish directory: `dist/`
@@ -178,6 +181,7 @@ All checks passed locally before deploy:
 | F-tags post: full content + FAQ schema | Pass |
 | Posts 9–13 import without syntax errors | Pass |
 | Solution pages: single FAQ schema each | Pass |
+| Build fails on draft placeholder text in `dist/` | Pass (automated) |
 
 ---
 
@@ -186,6 +190,7 @@ All checks passed locally before deploy:
 ### SEO core
 
 - `scripts/generate-sitemap.js`
+- `scripts/verify-build-output.js`
 - `public/sitemap.xml` (generated)
 - `src/marketing/seo/constants.ts`
 - `src/marketing/seo/blogArticleMeta.ts`
@@ -216,13 +221,14 @@ All checks passed locally before deploy:
 
 ## Remaining work (not in this release)
 
-These were identified in the SEO audit. Status as of the follow-up G2 schema commit (`912e8bd`):
+These were identified in the SEO audit. Status as of the build safety-check commit (`a922661`):
 
 ### Done after initial release
 
 - **G2 in Organization schema** — `sameAs` includes `https://www.g2.com/products/comply-care`; `areaServed` (United States) and `knowsAbout` (SNF focus) added in `index.html`.
 - **Search Console** — sitemap submitted; indexing requested for `/blog/` and F-tags post.
 - **Blog posts 9–13** — placeholder content replaced and deployed.
+- **Build safety check** — `scripts/verify-build-output.js` fails `npm run build` if `Draft for:` or `Content to be written` appears in any prerendered HTML.
 
 ### G2 / Capterra / GetApp / Software Advice (Jan 2026)
 
@@ -262,5 +268,7 @@ See [`TODO_SEO.md`](../TODO_SEO.md) for the updated growth checklist.
 |--------|---------|
 | `da1550f` | SEO crawlability, sitemap/canonical alignment, posts 9–13, FAQ schema |
 | `912e8bd` | G2 `sameAs`, Organization `areaServed` / `knowsAbout` |
+| `e984a98` | Docs: G2/Capterra consolidation, updated `TODO_SEO.md` |
+| `a922661` | Post-build check blocking draft placeholder text in `dist/` |
 
 For full diffs, see git history on `main`.

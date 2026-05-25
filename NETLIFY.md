@@ -2,6 +2,8 @@
 
 Build output is Vite’s **`dist/`** (see [`netlify.toml`](netlify.toml)). SPA fallback lives in [`public/_redirects`](public/_redirects); headers in [`public/_headers`](public/_headers).
 
+**Build pipeline:** `npm run build` → generate sitemap → Vite → prerender 26 routes → **`verify-build-output.js`** (fails deploy if draft placeholder text like `Draft for:` is in any `dist/**/*.html`). Details: [`docs/SEO_RELEASE_NOTES.md`](docs/SEO_RELEASE_NOTES.md).
+
 ## One-time: log in and link this folder to a site
 
 From the project root:

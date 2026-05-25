@@ -18,7 +18,11 @@ Technical crawl/index fixes are **done** (see [`docs/SEO_RELEASE_NOTES.md`](docs
 
 ---
 
-## Search Console (done — monitor only)
+## Build safety (automated)
+
+- [x] **`verify-build-output.js`** — production build fails if `Draft for:` or `Content to be written` appears in `dist/` (`a922661`)
+
+---
 
 - [x] Submit `sitemap.xml`
 - [x] Request indexing: `/blog/`, F-tags post
